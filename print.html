@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<link rel="icon" href="t.png">
+<html>
+  <body onhashchange="setPage()" id="content" onload="init();">
+    <link rel="stylesheet" href="styles.css">
+    <div class="topbar">
+      <div class="nav">
+        <li><a onclick="setPage();" id="tsnav" href="print.html#typeset">typeset</a></li>
+        <li><a onclick="setPage();" id="blnav" href="print.html#updates">updates</a></li>
+        <li><a onclick="setPage();" id="dcnav" href="print.html#docs">docs</a></li>
+        <li><a onclick="setPage();" id="abnav" href="print.html#about">about</a></li>
+      </div>
+    </div>
+    <div class="space"></div>
+    <div id="typeset">
+      <div class="space"></div>
+      <p id=tsTitle>typeset</p>
+      <p id=tsSubtext>unfinished</p>
+      <div class="input"><form action="/typeset.php">
+        <textarea name="message" rows="8" cols="55" class="typeset" id="text"></textarea>
+        <br>
+        <input type="submit" class="print" value="Print">
+      </form></div>
+    </div>
+    <div id="updates">
+      
+      <p id=udTitle>updates</p>
+      <p id=udSubtext>everthing I'm doing each week</p>
+      <div id="spacer" style="height: 50px"></div>
+      <div id="updateOuter">
+        <div id="updateMid"> <h1 id="updateInner">November 5th</h1> </div>
+        <p id=updateP>This class period I began work on this website. That includes the text for the #about section, setting up the navigation bar and #typeset page. I later finished the updates page at home. I decided to make this site a one page design, using URL fragments for navigation. This uses JavaScipt to pipe HTML to the content div, based on the current URL fragment. This allows for a more fluid and smooth expirience, as well as less data being retrived on navigation. Using fragments retains the use of back and forward buttons in Chrome, whereas using a variable to keep track of the current page does not (this is what I was using before). My goal is to finish the site design by then end of this month, so I'm already on the right track to do that. As of writing this, the docs section is still entirely incomplete and the typeset & updates sections need work. I also plan to buy a domain and host this site by then end of November. I will update this page every week, so that one can see my steps and how long they took. The final code and assets will be posted in #docs.</p>
+      </div>
+    </div>
+    <div id="docs">docs_placeholder</div>
+    <div id="about">
+      <p id="abTitle">txtprint</p>
+      
+      <p id="abSubtext">a project by Jeremy Jacob for Full Steam Ahead</p>
+      <p id="abSubtext">AE Wright Middle School, Robotics 8th Grade</p>
+      <div id="spacer" style="height: 50px"></div>
+      <p id="abSubtext" style="font-style:italic">txtprint is a 3d printed portable thermal</p>
+      <p id="abSubtext" style="font-style:italic">printer designed for students and classroom use.</p>
+      <p id="abSubtext" style="font-style:italic">It uses the Chrome serial API to communicate with</p>
+      <p id="abSubtext" style="font-style:italic">an Arduino board. I made it because from personal</p>
+      <p id="abSubtext" style="font-style:italic"> expirience, being able to quickly print conclusions</p>
+      <p id="abSubtext" style="font-style:italic"> or other text in class is an invaluable asset.</p>
+      <p id="abSubtext" style="font-style:italic">I was a group member in a previous FSA project, Classmate.</p>
+      <p id="abSubtext" style="font-style:italic">That project also used an Arduino, so I have expirience</p>
+      <p id="abSubtext" style="font-style:italic">in that area. As for web coding, it is largely new</p>
+      <p id="abSubtext" style="font-style:italic">to me. This is the first full website I have built</p>
+      <p id="abSubtext" style="font-style:italic">enitely from scratch. If you have feedback for</p>
+      <p id="abSubtext" style="font-style:italic">the project or website, please feel free to email me</p>
+      <p id="abSubtext" style="font-style:italic">at <u onClick="javascript:window.open('mailto:jeremjacob5705@student.lvusd.org?Subject=txtprint%20feedback', 'mail');event.preventDefault()" style="cursor: pointer;" target="_top">jeremjacob5705@student.lvusd.org</u></p>
+      <div class="abHighlight"></div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
