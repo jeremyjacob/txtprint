@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="origin-trial" data-feature="WebUSB (For Chrome M57+)" data-expires="2017-06-19" content="Ag83MurQOa5N4SKRCqqtSlbycfe08s5LgUiqEI7J3jTk2NEIpRp7SLPz2i+EBDuXyf+AeRMdD6BI+ +kTSJmGzQEAAABReyJvcmlnaW4iOiJodHRwczovL3dlYnVzYi5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IldlYlVTQjIiLCJleHBpcnkiOjE0OTc4OTM2OTV9">
+    <link rel="icon" href="t.png">
+    <script src="serial.js"></script>
+    <script src="console.js"></script>
+  </head>
+  <body onhashchange="setPage()" id="content">
+    <link rel="stylesheet" href="styles.css">
+    <div class="topbar">
+      <div class="nav">
+        <li><a onclick="setPage();" id="tsnav" href="#typeset">typeset</a></li>
+        <li><a onclick="setPage();" id="blnav" href="#updates">updates</a></li>
+        <li><a onclick="setPage();" id="dcnav" href="#docs">docs</a></li>
+        <li><a onclick="setPage();" id="abnav" href="#about">about</a></li>
+      </div>
+    </div>
+    <div class="space"></div>
+    <div id="typeset">
+      <div class="space"></div>
+      <p id="tsTitle">typeset</p>
+      <t class="tsSubtext" style="z-index: 2;">Feather: </t>
+      <div id=tsCover></div>
+      <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>
+      <t class="tsSubtext tsStatus" id="tsConnected" title="Click to disconnect">connected</t>
+      <br>
+      <div class="input">
+        <textarea name="message" rows="8" cols="56" id="text"></textarea>
+        <br>
+        <sInput style="padding-left: 20px;padding-right: 20px;" id="textStatus">typing</sInput>
+        <sInput style="text-decoration: underline;cursor:pointer;" title="Click for word count" id="charDisplay" onclick="countMode()">characters</sInput>
+        <sInput style="" id="charCount">0</sInput>
+        
+        <br>
+        <button id="print">Print</button>
+        
+      </div>
+    </div>
+    <div id="updates" style="display:none;">
+      
+      <p id=udTitle>updates</p>
+      <p id=udSubtext style="font-size: 18px;b">txtprint // jeremy jacob</p>
+      <div id="spacer" style="height: 50px"></div>
+      <div id="updateOuter">
+        <div id="updateMid"> <h1 id="updateInner">November 5th</h1><p id=updateW>week 0</p></div>
+        
+        <p id=updateP>This class period I began work on this website. That includes the text for the #about section, setting up the navigation bar and #typeset page. I later finished the updates page at home. I decided to make this site a one page design, using URL fragments for navigation. This uses JavaScript to pipe HTML to the content div, based on the current URL fragment. This allows for a more fluid and smooth experience, as well as less data being retrieved on navigation. Using fragments retains the use of back and forward buttons in Chrome, whereas using a variable to keep track of the current page does not (this is what I was using before). My goal is to finish the site design by then end of this month, so I'm already on the right track to do that. As of writing this, the docs section is still entirely incomplete and the typeset & updates sections need work. I also plan to buy a domain and host this site by then end of November. I will update this page every week, so that one can see my steps and how long they took. The final code and assets will be posted in #docs.</p>
+      </div>
+      
+    </div>
+    <div id="docs" style="display:none;">
+      <div id="docSidebar">
+        <div id="docList">
+          <div id="docSmallSidebar"></div>
+          <dcs><a onclick="setDocPage(home)">home</a></dcs>
+          <dcs><a onclick="setDocPage(website)">website</a></dcs>
+          <dcs><a onclick="setDocPage(arduino)">arduino</a></dcs>
+          <dcs><a onclick="setDocPage(models)">models</a></dcs>
+        </div>
+      </div>
+      <div id=""></div>
+    </div>
+    <div id="about" style="display:none;">
+      <p id="abTitle">txtprint</p>
+      
+      <p id="abSubtext">a project by Jeremy Jacob for Full Steam Ahead</p>
+      <p id="abSubtext">AE Wright Middle School, Robotics 8th Grade</p>
+      <div id="spacer" style="height: 50px"></div>
+      <p id="abSubtext" style="font-style:italic">txtprint is a 3d printed portable thermal printer designed for students and classroom use. It uses the Chrome serial API to communicate with an Arduino-style board. I made it because from personal expirience, being able to quickly print conclusions or other text in class is an invaluable asset. I was a group member in a previous FSA project, Classmate. That project also used an Arduino, so I have expirience in that area. As for web coding, it is largely new to me. This is the first full website I have built enitely from scratch. It uses the WebUSB protocol in Chrome to connect and communicate with a Feather 32u4 board. Made by Adafruit this device has the capability to work with WebUSB, whereas a regular Arduino Uno wouldn’t. It also has a built-in bluetooth chip, so in the future I can add support for BT and USB connections. Feel free to take a peek at the source code for both the website and Arduino sketch on the github page. If you have feedback for the project or website, please feel free to email me at</p>
+      <p id="abSubtext" style="font-style:italic">at <u onClick="javascript:window.open('mailto:jeremjacob5705@student.lvusd.org?Subject=txtprint%20feedback', 'mail');event.preventDefault()" style="cursor: pointer;" target="_top">jeremjacob5705@student.lvusd.org</u></p>
+      <div class="abHighlight"></div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
