@@ -178,6 +178,16 @@ dcs > a:hover:before {
   color: #4e4e4e;
   vertical-align: middle;
 }
+#version {
+  position: absolute;
+  bottom:0px;
+  right:15px;
+  float: right;
+  font-family: Courier;
+  font-size: 11px;
+  color: #4e4e4e;
+  vertical-align: middle;
+}
 #tsDisconnected {
   position: absolute;
   top: 178px;
