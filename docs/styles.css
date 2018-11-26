@@ -230,7 +230,7 @@ dcs > a:hover:before {
 #udTitle {
   font-family: Courier;
   font-size: 50px;
-  padding-left: 85px;
+  padding-left: 3%;
   padding-top: 50px;
   line-height: 0px;
   color: #3d3d3d;
