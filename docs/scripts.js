@@ -12,6 +12,7 @@ let typing = document.querySelector('#textStatus');
 var char = true;
 var boxCol = 34;
 var observe, page;
+var index = 0;
 
 //// Load cookie ////
 if (document.cookie.split('=')[1] != null) {
