@@ -6,7 +6,6 @@
   document.addEventListener('DOMContentLoaded', event => {
     var connectButtons = document.querySelectorAll('.tsStatus');
     var connected = false;
-    let tsCover = document.querySelector('#tsCover');
     let box = document.querySelector('#text');
     let printButton = document.querySelector('#print');
     let typing = document.querySelector('#textStatus');
@@ -15,7 +14,6 @@
       port.connect().then(() => {
         console.log(port);
         console.log('Connected.');
-        tsCover.classList.remove('down');
         Object.assign(printButton.style,{'background-color':'#6AC761EE'});
         printButton.style.cursor = "pointer";
         document.getElementById('tsDisconnected').style.opacity = '0';
@@ -31,7 +29,6 @@
           
         };
         port.onReceiveError = error => {
-            tsCover.classList.remove('down');
             document.getElementById('tsDisconnected').style.opacity = '1';
             document.getElementById('tsConnected').style.opacity = '0';
             Object.assign(printButton.style,{'background-color':'#6e6e6e'});
@@ -61,10 +58,8 @@
     
     connectButtons.forEach(function(elem) {
         elem.addEventListener('click', function() {
-          tsCover.classList.add('down');
           if (port) {
             port.disconnect();
-            tsCover.classList.remove('down');
             document.getElementById('tsDisconnected').style.opacity = '1';
             document.getElementById('tsConnected').style.opacity = '0';
             Object.assign(printButton.style,{'background-color':'#6e6e6e'});
@@ -78,7 +73,6 @@
             }).catch(error => {
               
               console.log('Connection error: ' + error);
-              tsCover.classList.remove('down');
             });
           }
           
