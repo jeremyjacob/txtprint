@@ -1,31 +1,41 @@
 //// Defines ////
-let content = document.getElementById("content");
-let typeset = document.getElementById("typeset");
-let updates = document.getElementById("updates");
-let docs = document.getElementById("docs");
-let docHome = document.getElementById("about");
-let about = document.getElementById("about");
-let box = document.getElementById("text");
-let charCount = document.getElementById("charCount");
-let charDisplay = document.getElementById("charDisplay");
-let typing = document.querySelector('#textStatus');
+var content = document.getElementById("content");
+var typeset = document.getElementById("typeset");
+var updates = document.getElementById("updates");
+var docs = document.getElementById("docs");
+var docHome = document.getElementById("about");
+var about = document.getElementById("about");
+var box = document.getElementById("text");
+var charCount = document.getElementById("charCount");
+var charDisplay = document.getElementById("charDisplay");
+var typing = document.querySelector('#textStatus');
 var char = true;
 var boxCol = 34;
 var observe, page;
 var index = 0;
 
-//// Load cookie w anim ////
+//// Expanding textbox & counting chars and words ////
+box.setAttribute('style', 'height:' + (box.scrollHeight) + 'px;overflow-y:hidden;');
+box.addEventListener("input", OnInput, false);
 
-var storedBox = document.cookie.split('=')[1];
-document.addEventListener("DOMContentLoaded", function(event) {
-  if (document.cookie.split('=')[1] !== null) {
-    window.next_letter = function() {
-        if (index <= storedBox.length) {
-            box.value = storedBox.substr(0, index++);
-            setTimeout("next_letter()", 8);
-  }};}
-});
-next_letter();
+function OnInput() {
+  localStorage.setItem('typeText', box.value);
+  // document.cookie = "typeText="+box.value+"; expires=Thu, 31 Dec 2037 12:00:00 UTC";localStorage.getItem('typeText');
+    typing.innerHTML = "typing";
+  if (char === true) {charCount.innerHTML = box.value.length;if (box.value.length == 1) {charDisplay.innerHTML = "character"} else {charDisplay.innerHTML = "characters"}} 
+  else {charCount.innerHTML = realWordCount();}
+  
+  box.style.height = 'auto';
+  box.style.height = (box.scrollHeight) + 'px';
+}
+
+//// Load cookie w/ anim ////
+var storedBox = localStorage.getItem('typeText');
+if (localStorage.getItem('typeText') !== null) {
+  box.value = storedBox;
+  OnInput();
+}
+
 
 //// Mobile code ////
 if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -34,7 +44,6 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
   var abSubtexts = document.querySelectorAll('#abSubtext');
   abSubtexts.forEach(function(abSubtexts) {
     abSubtexts.style.width = "85%";
-    console.log(abSubtexts);
   })
   
   boxCol = screen.width / 12.2;
@@ -66,12 +75,6 @@ if(
    alert ("This page was designed for a modern version Google Chrome. You may try to use it on another browser, but it may not work as intended.");
 }
 
-//// Mousetrap Binds ////
-Mousetrap.bind(['mod+enter'], function(e) {
-    document.querySelector('#print').click();
-    console.log("Print // mousetrap")
-});
-
 
 //// setPage code for dynamically changing the page content basic on url hashes ////
 function setPage() {
@@ -80,23 +83,23 @@ function setPage() {
     case "updates":
       displayNone();
       updates.style.display = "block";
-      document.title = "txtprint // updates"
+      document.title = "txtprint // updates";
       break;
     case "docs":
       displayNone();
       docs.style.display = "block";
-      document.title = "txtprint // docs"
+      document.title = "txtprint // docs";
       break;
     case "about":
       displayNone();
       about.style.display = "block";
-      document.title = "txtprint // about"
+      document.title = "txtprint // about";
       break;
     default:
       window.location.hash = 'typeset';
       displayNone();
       typeset.style.display = "block";
-      document.title = "txtprint // typeset"
+      document.title = "txtprint // typeset";
       break;
   }
 }
@@ -109,20 +112,6 @@ function displayNone() {
 }
 
 
-
-//// Expanding textbox & counting chars and words ////
-box.setAttribute('style', 'height:' + (box.scrollHeight) + 'px;overflow-y:hidden;');
-box.addEventListener("input", OnInput, false);
-
-function OnInput() {
-  document.cookie = "typeText="+box.value+"; expires=Thu, 31 Dec 2037 12:00:00 UTC";document.cookie.split('=')[1];
-    typing.innerHTML = "typing";
-  if (char === true) {charCount.innerHTML = box.value.length;if (box.value.length == 1) {charDisplay.innerHTML = "character"} else {charDisplay.innerHTML = "characters"}} 
-  else {charCount.innerHTML = realWordCount();}
-  
-  this.style.height = 'auto';
-  this.style.height = (this.scrollHeight) + 'px';
-}
 
 
 function countMode () {

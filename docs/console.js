@@ -2,13 +2,13 @@
 
 (function() {
   var port;
-  let textEncoder = new TextEncoder();
+  var textEncoder = new TextEncoder();
   document.addEventListener('DOMContentLoaded', event => {
     var connectButtons = document.querySelectorAll('.tsStatus');
     var connected = false;
-    let box = document.querySelector('#text');
-    let printButton = document.querySelector('#print');
-    let typing = document.querySelector('#textStatus');
+    var box = document.querySelector('#text');
+    var printButton = document.querySelector('#print');
+    var typing = document.querySelector('#textStatus');
     function connect() {
       console.log('Connecting to ' + port.device_.productName + '...');
       port.connect().then(() => {
@@ -20,7 +20,7 @@
         document.getElementById('tsConnected').style.opacity = '1';
         connected = true;
         port.onReceive = data => {
-          let textDecoder = new TextDecoder();
+          var textDecoder = new TextDecoder();
           if (textDecoder.decode(data).includes('#')) {
             typing.innerHTML = "printed";
             box.classList.remove('printing');
@@ -48,7 +48,7 @@
       box.classList.add('printing');
       typing.innerHTML = "printing";
       console.log(textEncoder.encode(box.value));
-      console.log(box.value);
+      //console.log(box.value);
       port.send(textEncoder.encode(box.value)).catch(error => {
         console.log('Send error: ' + error);
         typing.innerHTML = "failed";
