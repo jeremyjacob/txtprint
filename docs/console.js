@@ -20,7 +20,6 @@
         printButton.style.cursor = "pointer";
         document.getElementById('tsDisconnected').style.opacity = '0';
         document.getElementById('tsConnected').style.opacity = '1';
-        console.log("1");
         connected = true;
         port.onReceive = data => {
           let textDecoder = new TextDecoder();
@@ -35,7 +34,6 @@
             tsCover.classList.remove('down');
             document.getElementById('tsDisconnected').style.opacity = '1';
             document.getElementById('tsConnected').style.opacity = '0';
-            console.log("2");
             Object.assign(printButton.style,{'background-color':'#6e6e6e'});
             printButton.style.cursor = "not-allowed";
             connected = false;
@@ -67,10 +65,8 @@
           if (port) {
             port.disconnect();
             tsCover.classList.remove('down');
-            console.log("3");
             document.getElementById('tsDisconnected').style.opacity = '1';
             document.getElementById('tsConnected').style.opacity = '0';
-            console.log("3.5");
             Object.assign(printButton.style,{'background-color':'#6e6e6e'});
             printButton.style.cursor = "not-allowed";
             connected = false;

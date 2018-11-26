@@ -13,10 +13,11 @@ var char = true;
 var observe, page;
 
 //// Load cookie ////
-document.addEventListener('DOMContentLoaded', event => {
-  box.value = document.cookie.split('=')[1];
-});
-
+if (document.cookie.split('=')[1] !== "undefined") {
+  document.addEventListener('DOMContentLoaded', event => {
+    box.value = document.cookie.split('=')[1];
+  });
+}
 
 //// Default to #typset ////
 setPage(0);
@@ -47,35 +48,37 @@ function setPage() {
   page = window.location.hash.substring(1);
   switch (page) {
     case "updates":
-      typeset.style.display = "none";
+      displayNone();
       updates.style.display = "block";
-      docs.style.display = "none";
-      about.style.display = "none";
       document.title = "txtprint // updates"
       break;
     case "docs":
-      typeset.style.display = "none";
-      updates.style.display = "none";
+      displayNone();
       docs.style.display = "block";
-      about.style.display = "none";
       document.title = "txtprint // docs"
       break;
     case "about":
-      typeset.style.display = "none";
-      updates.style.display = "none";
-      docs.style.display = "none";
+      displayNone();
       about.style.display = "block";
       document.title = "txtprint // about"
       break;
     default:
+      window.location.hash = 'typeset';
+      displayNone();
       typeset.style.display = "block";
-      updates.style.display = "none";
-      docs.style.display = "none";
-      about.style.display = "none";
       document.title = "txtprint // typeset"
       break;
   }
 }
+
+function displayNone() {
+  typeset.style.display = "none";
+  updates.style.display = "none";
+  docs.style.display = "none";
+  about.style.display = "none";
+}
+
+
 
 //// Expanding textbox & counting chars and words ////
 box.setAttribute('style', 'height:' + (box.scrollHeight) + 'px;overflow-y:hidden;');

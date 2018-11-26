@@ -7,7 +7,7 @@
     <script src="serial.js"></script>
     <script src="console.js"></script>
   </head>
-  <body onhashchange="setPage()" id="content">
+  <body onhashchange="setPage()" id="content" style="height: 100%;">
     <link rel="stylesheet" href="styles.css">
     <div class="topbar">
       <div class="nav">
@@ -17,7 +17,7 @@
         <li><a onclick="setPage();" id="abnav" href="#about">about</a></li>
       </div>
     </div>
-    <p id="version">version 1.0 release</p>
+    <p id="version">version 1.1 unreleased</p>
     <div class="space"></div>
     <div id="typeset">
       <div class="space"></div>
@@ -31,7 +31,7 @@
         <textarea name="message" rows="8" cols="56" id="text"></textarea>
         <br>
         <sInput style="padding-left: 20px;padding-right: 20px;" id="textStatus">typing</sInput>
-        <sInput style="text-decoration: underline;cursor:pointer;" title="Click for word count" id="charDisplay" onclick="countMode()">characters</sInput>
+        <sInput style="text-decoration: underline;cursor:pointer;user-select: none;" title="Click for word count" id="charDisplay" onclick="countMode()">characters</sInput>
         <sInput style="" id="charCount">0</sInput>
         
         <br>
