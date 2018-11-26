@@ -18,13 +18,13 @@ var index = 0;
 
 var storedBox = document.cookie.split('=')[1];
 document.addEventListener("DOMContentLoaded", function(event) {
-  if (document.cookie.split('=')[1] != null) {
+  if (document.cookie.split('=')[1] !== null) {
     window.next_letter = function() {
         if (index <= storedBox.length) {
             box.value = storedBox.substr(0, index++);
             setTimeout("next_letter()", 8);
   }};}
-}
+});
 next_letter();
 
 //// Mobile code ////
