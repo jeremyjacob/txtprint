@@ -1,4 +1,7 @@
-.space { margin-top: 70px; }
+body {
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+}
+  .space { margin-top: 70px; }
 #text {
     font-size: 14px;
     padding: 16px 18px;
@@ -227,11 +230,11 @@ dcs > a:hover:before {
 #tsCover {
   z-index: 1;
   position: absolute;
-  top: 170px;
-  left: 272px;
+  top: 5%;
+  left: 5.01%;
   width: 120px;
   height: 20px;
-  background-color: #fff;
+  background-color: #eee;
   
   transition: all .5s cubic-bezier(.41,0,0,1.03);
   transition-delay: 0.06s;
