@@ -15,13 +15,16 @@ var observe, page;
 var index = 0;
 
 //// Load cookie w anim ////
+
 var storedBox = document.cookie.split('=')[1];
-if (document.cookie.split('=')[1] != null) {
-  window.next_letter = function() {
-      if (index <= storedBox.length) {
-          box.value = storedBox.substr(0, index++);
-          setTimeout("next_letter()", 8);
-}};}
+document.addEventListener("DOMContentLoaded", function(event) {
+  if (document.cookie.split('=')[1] != null) {
+    window.next_letter = function() {
+        if (index <= storedBox.length) {
+            box.value = storedBox.substr(0, index++);
+            setTimeout("next_letter()", 8);
+  }};}
+}
 next_letter();
 
 //// Mobile code ////
