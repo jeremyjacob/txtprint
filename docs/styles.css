@@ -6,6 +6,7 @@
     box-sizing: border-box;
     background-color: #FFFFFF;
     color: #2d2d2d;
+    resize: none;
     border-radius: 17px;
     border: 1.7px solid #d8d8d8;
     font-family: Courier;
@@ -259,7 +260,7 @@ dcs > a:hover:before {
 
 }
 #typeset {
-  padding-left: 50px;
+  padding-left: 5%;
 }
 
 #abTitle {
