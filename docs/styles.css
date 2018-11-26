@@ -227,24 +227,6 @@ dcs > a:hover:before {
   background: #6AC76188;
   transition: 0.2s;
 }
-#tsCover {
-  z-index: 1;
-  position: absolute;
-  top: 5%;
-  left: 5.01%;
-  width: 120px;
-  height: 20px;
-  background-color: #eee;
-  
-  transition: all .5s cubic-bezier(.41,0,0,1.03);
-  transition-delay: 0.06s;
-  float: right;
-}
-#tsCover.down {
-  transition-delay: 0.2s;
-  left: 160px;
-}
-
 #udTitle {
   font-family: Courier;
   font-size: 50px;
