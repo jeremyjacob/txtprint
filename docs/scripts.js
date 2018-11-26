@@ -14,13 +14,14 @@ var boxCol = 34;
 var observe, page;
 var index = 0;
 
-//// Load cookie ////
+//// Load cookie w anim ////
 if (document.cookie.split('=')[1] != null) {
   window.next_letter = function() {
       if (index <= storedBox.length) {
           box.value = storedBox.substr(0, index++);
           setTimeout("next_letter()", 8);
 }};}
+next_letter();
 
 //// Mobile code ////
 if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
