@@ -15,6 +15,7 @@ var observe, page;
 var index = 0;
 
 //// Load cookie w anim ////
+var storedBox = document.cookie.split('=')[1];
 if (document.cookie.split('=')[1] != null) {
   window.next_letter = function() {
       if (index <= storedBox.length) {
@@ -61,6 +62,13 @@ if(
    // not Google Chrome, warning
    alert ("This page was designed for a modern version Google Chrome. You may try to use it on another browser, but it may not work as intended.");
 }
+
+//// Mousetrap Binds ////
+Mousetrap.bind(['mod+enter'], function(e) {
+    document.querySelector('#print').click();
+    console.log("Print // mousetrap")
+});
+
 
 //// setPage code for dynamically changing the page content basic on url hashes ////
 function setPage() {
