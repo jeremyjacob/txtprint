@@ -13,7 +13,7 @@ var char = true;
 var observe, page;
 
 //// Load cookie ////
-if (document.cookie.split('=')[1] !== "undefined") {
+if (document.cookie.split('=')[1] != null) {
   document.addEventListener('DOMContentLoaded', event => {
     box.value = document.cookie.split('=')[1];
   });
