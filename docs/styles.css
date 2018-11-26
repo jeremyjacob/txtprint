@@ -261,14 +261,13 @@ dcs > a:hover:before {
   margin: auto;
   font-family: Courier;
   font-size: 14px;
-  width: 700px;
+  width: 40%;
   padding-left: 0px;
   padding-top: 0px;
   line-height: 28px;
   color: #3d3d3d;
   text-align: center;
 }
-
 
 #updateOuter {
   font-family: Courier;
