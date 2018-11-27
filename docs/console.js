@@ -56,6 +56,11 @@
       });
     }});
     
+    Mousetrap.bind('mod+enter', function(e) {
+      box.click();
+      return false;
+    });
+    
     connectButtons.forEach(function(elem) {
         elem.addEventListener('click', function() {
           if (port) {
