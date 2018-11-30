@@ -21,7 +21,7 @@ box.addEventListener("input", OnInput, false);
 function OnInput() {
   localStorage.setItem('typeText', box.value);
   // document.cookie = "typeText="+box.value+"; expires=Thu, 31 Dec 2037 12:00:00 UTC";localStorage.getItem('typeText');
-    typing.innerHTML = "typing";
+  typing.innerHTML = "typing";
   if (char === true) {charCount.innerHTML = box.value.length;if (box.value.length == 1) {charDisplay.innerHTML = "character"} else {charDisplay.innerHTML = "characters"}} 
   else {charCount.innerHTML = realWordCount();}
   
@@ -75,6 +75,9 @@ if(
    alert ("This page was designed for a modern version Google Chrome. You may try to use it on another browser, but it may not work as intended.");
 }
 
+function version(v) {
+  console.log('%c'+v, 'color: black; font-weight: bold;');
+}
 
 //// setPage code for dynamically changing the page content basic on url hashes ////
 function setPage() {

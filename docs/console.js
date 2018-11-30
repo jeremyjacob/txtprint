@@ -16,8 +16,8 @@
         console.log('Connected.');
         Object.assign(printButton.style,{'background-color':'#6AC761EE'});
         printButton.style.cursor = "pointer";
-        document.getElementById('tsDisconnected').style.opacity = '0';
-        document.getElementById('tsConnected').style.opacity = '1';
+        document.getElementById('tsDisconnected').style.display = 'none';
+        document.getElementById('tsConnected').style.display = 'block';
         connected = true;
         port.onReceive = data => {
           var textDecoder = new TextDecoder();
@@ -29,8 +29,8 @@
           
         };
         port.onReceiveError = error => {
-            document.getElementById('tsDisconnected').style.opacity = '1';
-            document.getElementById('tsConnected').style.opacity = '0';
+            document.getElementById('tsDisconnected').style.display = 'block';
+            document.getElementById('tsConnected').style.display = 'none';
             Object.assign(printButton.style,{'background-color':'#6e6e6e'});
             printButton.style.cursor = "not-allowed";
             connected = false;
@@ -54,19 +54,20 @@
         typing.innerHTML = "failed";
         box.classList.remove('printing');
       });
-    }});
-    
-    Mousetrap.bind('mod+enter', function(e) {
-      box.click();
-      return false;
-    });
-    
+    } else {console.log("Can't print; not connected");}
+  });
+
+var listener = new window.keypress.Listener();   
+listener.simple_combo("ctrl enter", function() {printButton.click();});
+listener.simple_combo("/", function() {box.focus();});
+listener.simple_combo("enter", function() {box.focus();});
+
     connectButtons.forEach(function(elem) {
         elem.addEventListener('click', function() {
           if (port) {
             port.disconnect();
-            document.getElementById('tsDisconnected').style.opacity = '1';
-            document.getElementById('tsConnected').style.opacity = '0';
+            document.getElementById('tsDisconnected').style.display = 'block';
+            document.getElementById('tsConnected').style.display = 'none';
             Object.assign(printButton.style,{'background-color':'#6e6e6e'});
             printButton.style.cursor = "not-allowed";
             connected = false;
@@ -85,7 +86,7 @@
     });
     serial.getPorts().then(ports => {
       if (ports.length === 0) {
-        console.log('No devices found.');
+        // console.log('No devices found.');
       } else {
         port = ports[0];
         connect();
