@@ -273,33 +273,32 @@ dcs > a:hover:before {
   text-align: center;
 }
 
-#updateOuter {
+.updateOuter {
   font-family: Courier;
   position:relative;
   top:0;
   left:0;
   height: auto;
-  padding-bottom: 15px;
+  padding-bottom: 13px;
+  margin-bottom: 60px;
   padding-left: 35px;
   padding-top: 10px;
   background-color: #f6f6f6;
   list-style-type: none;
   overflow:auto
 }
-#updateMid {
+.updateMid {
   display: flex;
 }
-#updateInner {
+.updateInner {
   flex: 0 0 auto;
-  height: 30px;
   color: #535353;
-  background-color: #fffb07;
   
 }
-#updateP {
+.updateP {
   width: 95%;
 }
-#updateW {
+.updateW {
   width: 70%;
   text-align: right;
   padding-top: 12.5px;
