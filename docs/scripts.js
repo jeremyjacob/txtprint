@@ -9,6 +9,8 @@ var box = document.getElementById("text");
 var charCount = document.getElementById("charCount");
 var charDisplay = document.getElementById("charDisplay");
 var typing = document.querySelector('#textStatus');
+var topbar = document.querySelector('.topbar');
+var scrollNav = window.scrollTop;
 var char = true;
 var boxCol = 34;
 var observe, page;
@@ -141,3 +143,15 @@ function realWordCount() {
 function setDocPage(page) {
   
 }
+
+
+window.addEventListener('scroll', function() {
+        scrollNav = window.scrollY;
+        if (scrollNav > 0) {
+          topbar.classList.add("active");
+        } else {
+          topbar.classList.remove("active");
+        }
+});
+
+//// POPUP ////

@@ -5,13 +5,13 @@
     <meta http-equiv="origin-trial" data-feature="WebUSB (For Chrome M57+)" data-expires="2017-06-19" content="Ag83MurQOa5N4SKRCqqtSlbycfe08s5LgUiqEI7J3jTk2NEIpRp7SLPz2i+EBDuXyf+AeRMdD6BI+ +kTSJmGzQEAAABReyJvcmlnaW4iOiJodHRwczovL3dlYnVzYi5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IldlYlVTQjIiLCJleHBpcnkiOjE0OTc4OTM2OTV9">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="t.png">
-    
+
     <script src="serial.js"></script>
     <script src="console.js"></script>
     <script src="keypress-2.1.5.min.js"></script>
     
   </head>
-  <body onload="version('Version 1.5 release')" onhashchange="setPage()" id="content" style="height: 100%;">
+  <body onload="version('Version 1.6 release')" onhashchange="setPage()" id="content" style="height: 100%;">
     <link rel="stylesheet" href="styles.css">
     <div class="topbar">
       <div class="nav">
@@ -47,13 +47,26 @@
       <p id=udSubtext style="font-size: 18px;">txtprint // jeremy jacob</p>
       <div id="spacer" style="height: 50px"></div>
       <div class="updateOuter">
-        <div class="updateMid"> <h1 class="updateInner">November 26th</h1><p class=updateW>week 1</p></div>
+        <div class="updateMid"> <h1 class="updateInner">December 3th<span class="updateInnerBG"></span></h1><p class=updateW>week 3</p></div>
+        
+        <p class=updateP>My plan until the next checkpoint is to continue imporving the website to be more responsive, and work better on mobile devices. This class period I added the ability to attach files as seen in this post. I also made some slight design imporvements in JS and CSS to make the website more clear and easier to use. An example can be seen by scrolling down on this page, and watching the navigation bar, a shadow should appear. This is to show that the bar is above the rest of the page, and to seperate it from the body of a blog post, which is the same color. A full log of my changes can be seen on the history tab of the Github. User experience is and imprort part of any website / product s </p>
+        <span class="attach image" onclick="document.querySelector('.imagePopup').style.display = 'block';">
+          <t>File:</t>
+          <u>test.png</u>
+          <fi class="material-icons material-icons--outline">photo</fi>
+        </span>
+        <div class="imagePopup" onclick="document.querySelector('.imagePopup').style.display = 'none';">
+          <img src="downloads/cat.jpg">
+        </div>
+      </div>
+      <div class="updateOuter">
+        <div class="updateMid"> <h1 class="updateInner">November 26th<span class="updateInnerBG"></span></h1><p class=updateW>week 1</p></div>
         
         <p class=updateP>This class and the week before (fall break) I worked largely on the website. You can see that here by clicking around. Besides formatting the website to work with mobile devices, most of my work was done on the #typeset page. I included the WebUSB library so now clicking 'disconnected' will prompt to connect. Once connected you can now use the print button and input box to send serial data the the Arduino device. Late this will be parsed by the sketch on the txtprint device and sent to the thermal printer. Other minor animations and bug fixes were also made. For a full list of every code change check the Github. (<t class="updateP" style="cursor: pointer;" onclick="window.location.href='https://github.com/jeremyjacob/txtprint/tree/master/docs'">https://github.com/jeremyjacob/txtprint/tree/master/docs</t>)</p>
         
       </div>
       <div class="updateOuter">
-        <div class="updateMid"> <h1 class="updateInner">November 5th</h1><p class=updateW>week 0</p></div>
+        <div class="updateMid"> <h1 class="updateInner">November 5th<span class="updateInnerBG"></span></h1><p class=updateW>week 0</p></div>
         
         <p class=updateP>This class period I began work on this website. That includes the text for the #about section, setting up the navigation bar and #typeset page. I later finished the updates page at home. I decided to make this site a one page design, using URL fragments for navigation. This uses JavaScript to pipe HTML to the content div, based on the current URL fragment. This allows for a more fluid and smooth experience, as well as less data being retrieved on navigation. Using fragments retains the use of back and forward buttons in Chrome, whereas using a variable to keep track of the current page does not (this is what I was using before). My goal is to finish the site design by then end of this month, so I'm already on the right track to do that. As of writing this, the docs section is still entirely incomplete and the typeset & updates sections need work. I also plan to buy a domain and host this site by then end of November. I will update this page every week, so that one can see my steps and how long they took. The final code and assets will be posted in #docs.</p>
       </div>
