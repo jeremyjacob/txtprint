@@ -155,3 +155,7 @@ window.addEventListener('scroll', function() {
 });
 
 //// POPUP ////
+
+function openUpdate() {
+  console.log(this.id);
+}

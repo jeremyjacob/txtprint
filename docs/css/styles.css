@@ -9,7 +9,7 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 37px;
+  font-size: 36px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
@@ -264,7 +264,7 @@ dcs > a:hover:before {
   font-family: Courier;
   font-size: 50px;
   padding-left: 85px;
-  padding-top: 50px;
+  padding-top: 75px;
   line-height: 0px;
   color: #3d3d3d;
 }
@@ -277,6 +277,7 @@ dcs > a:hover:before {
   color: #3d3d3d;
 
 }
+
 #typeset {
   padding-left: 3%;
 }
@@ -307,23 +308,30 @@ dcs > a:hover:before {
   position:relative;
   top:0;
   left:0;
+  opacity: 0;
+  border-radius: 0;
+  padding-bottom: 0;
   height: auto;
+  width: 80%;
+  margin: auto;
   padding-bottom: 13px;
   margin-bottom: 35px;
+  margin-top: 0px;
   padding-left: 35px;
   padding-top: 10px;
   background-color: #f6f6f6;
   list-style-type: none;
   overflow:auto
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: all 0.20s ease-in-out;
+  border-radius: 0px;
+  transition: all 0.30s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.updateOuter:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
-  background-color: #f5f5f599;
-  
+.updateouter.fadeIn {
+  opacity: 1;
 }
+
+
+
 .updateOuter .updateInnerBG {
   display: block;
   position: relative;
@@ -354,6 +362,7 @@ dcs > a:hover:before {
   text-align: right;
   padding-top: 12.5px;
   padding-left: 15px;
+  padding-right: 25px;
   font-size: 17px;
 
 }
@@ -412,13 +421,6 @@ info {
   line-height: 24.5px;
   display: inline;
 }
-#line {
-  position: absolute;
-  width: 1.7px;
-  height: 95px;
-  right: 177px;
-  background-color: #3d3d3d;  
-}
 
 
 fi {
@@ -433,15 +435,18 @@ fi {
   cursor: pointer;
   display: block;
   position: relative;
-  width: 135px;
-  padding-top: 7px;
-  padding-left: 10px;
-  padding-bottom: 10px;
+  width: 128px;
+  /*opacity: 1;*/
+  font-size: 14.5px;
+  padding: 8.5px;
+  padding-right: 0px;
   border-radius: 9px;
   background-color: #eee;
   border: 1.7px solid #ddd;
+  transition: all 0.2s;
 }
 .attach:hover {
+  opacity: 0.95;
 }
 .attach t {
   display: table;
@@ -456,43 +461,37 @@ fi {
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
-    cursor: pointer;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     opacity: 1;
-    animation-duration: 0.3s;
-    animation-name: imageLoad;
+    transition: all 0.5s;
 }
-@keyframes imageLoad {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+
 .imagePopup img{
   margin: auto;
   display: block;
   /*width: 80%;*/
   background-color: #eee;
-  padding: 0px;
-  border: 3px solid #ddd;
-  border-radius: 13px;
-
+  border-radius: 3px;
+  margin-top: 500px;
   max-width: 700px;
   cursor: default;
-  animation-duration: 0.5s;
-  animation-name: imageLoadSub;
+  transition: all 1s;
 }
-@keyframes imageLoadSub {
-  0% {
+.imagePopup img.open {
+  margin-top: 0px;
+}
 
-  }
-  100% {
-
-  }
+.modalSubtext {
+  /*position: relative;*/
+  margin: auto;
+  display: block;
+  font-family: Courier;
+  font-size: 14px;
+  line-height: 0px;
+  color: #4e4e4e;
+  vertical-align: middle;
 }
