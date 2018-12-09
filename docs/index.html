@@ -30,12 +30,13 @@
         <t class="tsSubtext tsStatus" id="tsConnected" title="Click to disconnect">connected</t>
         <br>
         <div class="input">
-            <textarea name="message" onblur="typing.innerHTML = 'ready';" rows="8" cols="56" id="text"></textarea>
+            <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" rows="8" cols="56" id="text"></textarea>
             <br>
-            <sInput style="padding-left: 20px;padding-right: 20px;" id="textStatus">ready</sInput>
-            <sInput style="text-decoration: underline;cursor:pointer;user-select: none;" title="Click for word count" id="charDisplay" onclick="countMode()">characters</sInput>
-            <sInput id="charCount">0</sInput>
-
+            <div id="textInfo">
+                <sInput style="padding-left: 20px;padding-right: 20px;" id="textStatus">ready</sInput>
+                <sInput style="text-decoration: underline;cursor:pointer;user-select: none;" title="Click for word count" id="charDisplay" onclick="countMode()">characters</sInput>
+                <sInput id="charCount">0</sInput>
+            </div>
             <br>
             <button id="print">Print</button>
 
@@ -55,7 +56,7 @@
             <p class=updateP>My plan until the next checkpoint is to continue imporving the website to be more responsive, and work better on mobile devices. This class period I added the ability to attach files as seen in this post. I also made some slight design imporvements
                 in JS and CSS to make the website more clear and easier to use. An example can be seen by scrolling down on this page, and watching the navigation bar, a shadow should appear. This is to show that the bar is above the rest of the page,
                 and to seperate it from the body of a blog post, which is the same color. A full log of my changes can be seen on the history tab of the Github. User experience is an important part of any website or product, which is why I'm trying to
-                get that as good as I can for this pr oject.</p>
+                get that as good as I can for this project.</p>
             <span class="attach image" onclick="document.querySelector('.imagePopup').style.display = 'block';">
           <t>File:</t>
           <u>test.png</u>

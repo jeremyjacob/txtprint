@@ -1,3 +1,4 @@
+/*eslint-env browser*/
 //// Defines ////
 var content = document.getElementById("content");
 var typeset = document.getElementById("typeset");
@@ -140,10 +141,6 @@ function realWordCount() {
 
 
 //// DOCS CODE ////
-function setDocPage(page) {
-  
-}
-
 
 window.addEventListener('scroll', function() {
         scrollNav = window.scrollY;
