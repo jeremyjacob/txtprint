@@ -4,6 +4,25 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
 }
+@keyframes fadeIn {
+  0% {opacity: 0;margin-top: 4px;}
+  75% {opacity: 1;}
+  100% {margin-top: 0px;}
+}
+@keyframes scaleIn {
+  0% {transform: scale(0, 1);}
+  100% {transform: scale(1, 1);}
+}
+@keyframes blankFadeIn {
+  0% {opacity: 0;}
+  99% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@font-face {
+  
+  font-weight: 700;
+  src: url(fonts/GoogleSans.woff2) format('woff2');
+}
 
 .material-icons {
   font-family: 'Material Icons';
@@ -27,6 +46,7 @@
 
 body {
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+  font-family: 'Google Sans';
 }
   .space { margin-top: 70px; }
 #text {
@@ -39,10 +59,13 @@ body {
     resize: none;
     border-radius: 17px;
     border: 1.7px solid #e0e0e0;
-    font-family: Courier;
     outline: none;
     overflow: hidden;
     user-select: none;
+    animation:fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-duration: 0.35s;
     transition: all .3s ease-out
 }
 #text.printing {
@@ -65,11 +88,12 @@ sInput {
   color: #2d2d2d;
   float: right;
   padding-left: 8px;
-  bottom: 18px;
-  font-family: Courier;
+  bottom: 20px;
   font-size: 13px;
-/*  z-index: -1;*/  
   transition: all cubic-bezier(0.18, 0.89, 0.48, 1.16) 0.3s;
+  animation: blankFadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.35s;
 }
 sInput.lowered {
   z-index: 0;
@@ -84,7 +108,7 @@ sInput.lowered {
   margin-top: 3px;
   user-select: none;
   border-width: 0;
-  font-family: Courier;
+  width: 63px;
   font-weight: bold;
   font-size: 14px;
   text-align: center;
@@ -100,7 +124,7 @@ sInput.lowered {
 
 .input {
   z-index: -1;
-  padding-left: 8%;
+  padding-left: 5.1%;
   padding-top: 20px;
   outline: none;
   display: inline-block;
@@ -136,7 +160,7 @@ li a {
   position: relative;
   display: block;
   color: #000;
-  font-family: Courier;
+  
   padding: 18px 16px;
   text-decoration: none;
   
@@ -178,7 +202,7 @@ dcs a {
   position: relative;
   display: block;
   color: #000;
-  font-family: Courier;
+  
   padding: 18px 30px;
   text-decoration: none;
   width: 100px;
@@ -209,7 +233,7 @@ dcs > a:hover:before {
 
 #content {margin: 0px;}
 #tsTitle {
-  font-family: Courier;
+  
   font-size: 50px;
   padding-left: 5%;
   padding-top: 75px;
@@ -219,7 +243,7 @@ dcs > a:hover:before {
 }
 .tsSubtext {
   position: relative;
-  font-family: Courier;
+  
   font-size: 14px;
   padding-left: 5.7%;
   padding-top: 0px;
@@ -233,7 +257,7 @@ dcs > a:hover:before {
   bottom:0px;
   right:15px;
   float: right;
-  font-family: Courier;
+  
   font-size: 11px;
   color: #4e4e4e;
   vertical-align: middle;
@@ -241,41 +265,58 @@ dcs > a:hover:before {
 
 #tsDisconnected {
   position: absolute;
-  top: 202.7px;
+  top: 204px;
   margin-top: 0.9px;
   padding-bottom: 6px;
   padding-left: 0px;
+  margin-left: 6px;
   cursor: pointer;
-  height: 0px;
-  width: 100px;
-  background: #ED6666AA;
-  transition: 0.2s;
-}
-
-
-#tsDisconnected:hover {
-  background: #ED666688;
-  transition: 0.2s;
-}
+} #tsDisconnected::after {
+  z-index: -1;
+  position: absolute;
+  content: '';
+  height: 5.5px;
+  width: 100%;
+  bottom: -1px; 
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #ED666699;
+  animation: scaleIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-duration: 0.35s;
+  transform-origin: left;
+  transition: all 0.2s;
+} #tsDisconnected:hover::after{background: #ED666677;}
 
 #tsConnected {
   display: none;
   position: absolute;
-  top: 178px;
+  top: 204px;
+  margin-top: 0.9px;
   padding-bottom: 6px;
   padding-left: 0px;
+  margin-left: 6px;
   cursor: pointer;
-  height: 0px;
-  width:75px;
+} #tsConnected::after {
+  z-index: -1;
+  position: absolute;
+  content: '';
+  height: 5.5px;
+  width: 100%;
+  bottom: -1px; 
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 100%;
   background: #6AC761AA;
-  transition: 0.2s;
-}
-#tsConnected:hover {
-  background: #6AC76188;
-  transition: 0.2s;
-}
+  transition: all 0.2s;
+} #tsConnected:hover::after{background: #6AC76188;}
+
 #udTitle {
-  font-family: Courier;
+  
   font-size: 50px;
   padding-left: 85px;
   padding-top: 75px;
@@ -283,7 +324,7 @@ dcs > a:hover:before {
   color: #3d3d3d;
 }
 #udSubtext {
-  font-family: Courier;
+  
   font-size: 12px;
   padding-left: 85px;
   padding-top: 0px;
@@ -297,7 +338,7 @@ dcs > a:hover:before {
 }
 
 #abTitle {
-  font-family: Courier;
+  
   font-size: 50px;
   padding-left: 0px;
   padding-top: 50px;
@@ -307,7 +348,6 @@ dcs > a:hover:before {
 }
 #abSubtext {
   margin: auto;
-  font-family: Courier;
   font-size: 14px;
   width: 50%;
   padding-left: 0px;
@@ -315,10 +355,14 @@ dcs > a:hover:before {
   line-height: 28px;
   color: #3d3d3d;
   text-align: center;
+  transition: all 0.30s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation:fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-duration: 0.35s;
 }
 
 .updateOuter {
-  font-family: Courier;
   position:relative;
   top:0;
   left:0;
@@ -341,13 +385,10 @@ dcs > a:hover:before {
   transition: all 0.30s cubic-bezier(0.165, 0.84, 0.44, 1);
   animation:fadeIn ease-in 1;
   animation-fill-mode: forwards;
-  animation-delay: 0s;
-  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-duration: 0.35s;
 }
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
+
 
 .updateOuter .updateInnerBG {
   display: block;
@@ -415,7 +456,7 @@ dcs > a:hover:before {
 
 
 #stats {
-  font-family: Courier;
+  
   position: absolute;
   left: 800px;
   color:#3d3d3d;
@@ -441,7 +482,7 @@ fi {
   position: absolute;
   bottom: 7px;
   opacity: 0.7;
-  padding-left: 10px;
+  padding-left: 23px;
   display: inline-block;
 }
 .attach {
@@ -503,7 +544,7 @@ fi {
   /*position: relative;*/
   margin: auto;
   display: block;
-  font-family: Courier;
+  
   font-size: 14px;
   line-height: 0px;
   color: #4e4e4e;

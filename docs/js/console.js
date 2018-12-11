@@ -57,11 +57,6 @@
     } else {console.log("Can't print; not connected");}
   });
 
-var listener = new window.keypress.Listener();   
-listener.simple_combo("ctrl enter", function() {printButton.click();});
-listener.simple_combo("/", function() {box.focus();});
-listener.simple_combo("enter", function() {box.focus();});
-
     connectButtons.forEach(function(elem) {
         elem.addEventListener('click', function() {
           if (port) {

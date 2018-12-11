@@ -8,7 +8,6 @@
     <link rel="icon" href="assets/t.png">
     <script src="js/serial.js"></script>
     <script src="js/console.js"></script>
-    <script src="js/libraries/keypress-2.1.5.min.js"></script>
 </head>
 
 <body onload="version('Version 1.8 release')" onhashchange="setPage()" id="content" style="height: 100%;">
@@ -47,23 +46,19 @@
         <div style="height: 60px"></div>
         <div class="updateOuter" id="week2">
             <div class="updateMid">
-                <h1 class="updateInner">December 3th<span class="updateInnerBG"></span></h1>
+                <h1 class="updateInner">December 3rd<span class="updateInnerBG"></span></h1>
                 <p class=updateW>week 2</p>
             </div>
 
-            <p class=updateP>My plan until the next checkpoint is to continue imporving the website to be more responsive, and work better on mobile devices. This class period I added the ability to attach files as seen in this post. I also made some slight design imporvements
+            <p class=updateP>My plan until the next checkpoint is to continue improving the website to be more responsive, and work better on mobile devices. This class period I added the ability to attach files as seen in this post. I also made some slight design improvements
                 in JS and CSS to make the website more clear and easier to use. An example can be seen by scrolling down on this page, and watching the navigation bar, a shadow should appear. This is to show that the bar is above the rest of the page,
                 and to seperate it from the body of a blog post, which is the same color. A full log of my changes can be seen on the history tab of the Github. User experience is an important part of any website or product, which is why I'm trying to
                 get that as good as I can for this project.</p>
-            <span class="attach image" onclick="document.querySelector('.imagePopup').style.display = 'block';">
+            <span class="attach image" onclick="window.open(window.location.href.split('#')[0] + 'assets/cat.jpg');">
           <t>File:</t>
-          <u>test.png</u>
+          <u onclick="">test.png</u>
           <fi class="material-icons material-icons--outline">photo</fi>
         </span>
-            <div class="imagePopup" onclick="document.querySelector('.imagePopup').style.display = 'none';">
-              <t class="modalSubtext">cat.jpg</t>
-                <img src="assets/cat.jpg">
-            </div>
         </div>
         <div class="updateOuter" id="week1">
             <div class="updateMid">
@@ -73,8 +68,7 @@
 
             <p class=updateP>This class and the week before (fall break) I worked largely on the website. You can see that here by clicking around. Besides formatting the website to work with mobile devices, most of my work was done on the #typeset page. I included the
                 WebUSB library so now clicking 'disconnected' will prompt to connect. Once connected you can now use the print button and input box to send serial data the the Arduino device. Late this will be parsed by the sketch on the txtprint device
-                and sent to the thermal printer. Other minor animations and bug fixes were also made. For a full list of every code change check the Github. (
-                <t class="updateP" style="cursor: pointer;" onclick="window.location.href='https://github.com/jeremyjacob/txtprint/tree/master/docs'">https://github.com/jeremyjacob/txtprint/tree/master/docs</t>)</p>
+                and sent to the thermal printer. Other minor animations and bug fixes were also made. For a full list of every code change check the Github. (<tl class="updateP" style="cursor: pointer;" onclick="window.open('https://github.com/jeremyjacob/txtprint/tree/master/docs')">https://github.com/jeremyjacob/txtprint/tree/master/docs</tl>)</p>
 
         </div>
         <div class="sp"></div>

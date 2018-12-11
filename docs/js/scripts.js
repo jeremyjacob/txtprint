@@ -47,7 +47,7 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
   var abSubtexts = document.querySelectorAll('#abSubtext');
   abSubtexts.forEach(function(abSubtexts) {
     abSubtexts.style.width = "85%";
-  })
+  });
   
   boxCol = screen.width / 12.2;
   box.setAttribute("cols", boxCol);
@@ -117,19 +117,16 @@ function displayNone() {
   about.style.display = "none";
 }
 
-
-
-
 function countMode () {
   if (char === true) {
     char = false;
     charCount.innerHTML = realWordCount();
-    charDisplay.title = "Click for character count"
+    charDisplay.title = "Click for character count";
   } else {
     char = true;
     charCount.innerHTML = box.value.length;
     if (box.value.length == 1) {charDisplay.innerHTML = "character"} else {charDisplay.innerHTML = "characters"}
-    charDisplay.title = "Click for word count"
+    charDisplay.title = "Click for word count";
   }
 }
 function realWordCount() {
