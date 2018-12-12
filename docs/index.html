@@ -12,6 +12,7 @@
 
 <body onload="version('Version 1.8 release')" onhashchange="setPage()" id="content" style="height: 100%;">
     <link rel="stylesheet" href="css/styles.css">
+
     <div class="topbar">
         <div class="nav">
             <li><a onclick="setPage();" id="tsnav" href="#typeset">typeset</a></li>
@@ -21,11 +22,13 @@
         </div>
     </div>
     <div class="space"></div>
+
     <div id="typeset">
-        <div class="space"></div>
-        <div id="history">
-          <div class="box">history</div>
+        <div id="history" onclick="this.style.visibility = 'hidden';">
+          
         </div>
+        <div class="space"></div>
+
         <p id="tsTitle">typeset</p>
         <t class="tsSubtext" style="z-index: 2;">Feather: </t>
         <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>
@@ -35,9 +38,10 @@
         <div class="input">
             <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" rows="8" cols="56" id="text"></textarea>
             <br>
-                <sInput style="padding-left: 20px;padding-right: 20px;" id="textStatus">ready</sInput>
+                <sInput style="padding-left: 18px;padding-right: 20px;" id="textStatus">ready</sInput>
+                <sInput style="padding-left: 18px;text-decoration: underline;cursor:pointer;user-select: none;" onclick="document.querySelector('#history').style.visibility = 'visible';">history</sInput>
                 <sInput style="text-decoration: underline;cursor:pointer;user-select: none;" title="Click for word count" id="charDisplay" onclick="countMode()">characters</sInput>
-                <sInput id="charCount">0</sInput>
+                <sInput id="charCount">0</sInput> 
             <br>
             <button id="print">Print</button>
         </div>

@@ -4,6 +4,11 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
 }
+@font-face {
+  font-family: 'Google Sans';
+  font-weight: 700;
+  src: url(fonts/GoogleSans.woff2) format('woff2');
+}
 @keyframes fadeIn {
   0% {opacity: 0;margin-top: 4px;}
   75% {opacity: 1;}
@@ -18,10 +23,7 @@
   50% {opacity: 0;}
   100% {opacity: 1;}
 }
-@font-face {
-  font-weight: 700;
-  src: url(fonts/GoogleSans.woff2) format('woff2');
-}
+
 
 
 .material-icons {
@@ -87,7 +89,7 @@ sInput {
   z-index: -1;
   color: #2d2d2d;
   float: right;
-  padding-left: 8px;
+  padding-left: 10px;
   bottom: 20px;
   font-size: 13px;
   transition: all cubic-bezier(0.18, 0.89, 0.48, 1.16) 0.3s;
@@ -558,8 +560,13 @@ fi {
 
 #history {
   visibility: hidden;
+  z-index: 6;
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #000000AA;
+  width: 100%;
+  height: 100%;
 }
-#history.box {
-  
-}
+
