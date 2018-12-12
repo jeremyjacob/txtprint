@@ -23,11 +23,15 @@
     <div class="space"></div>
     <div id="typeset">
         <div class="space"></div>
+        <div id="history">
+          <div class="box">history</div>
+        </div>
         <p id="tsTitle">typeset</p>
         <t class="tsSubtext" style="z-index: 2;">Feather: </t>
         <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>
         <t class="tsSubtext tsStatus" id="tsConnected" title="Click to disconnect">connected</t>
         <br>
+        
         <div class="input">
             <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" rows="8" cols="56" id="text"></textarea>
             <br>
@@ -36,8 +40,8 @@
                 <sInput id="charCount">0</sInput>
             <br>
             <button id="print">Print</button>
-
         </div>
+        
     </div>
     <div id="updates" style="display:none;">
 

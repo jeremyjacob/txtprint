@@ -15,14 +15,14 @@
 }
 @keyframes blankFadeIn {
   0% {opacity: 0;}
-  99% {opacity: 0;}
+  50% {opacity: 0;}
   100% {opacity: 1;}
 }
 @font-face {
-  
   font-weight: 700;
   src: url(fonts/GoogleSans.woff2) format('woff2');
 }
+
 
 .material-icons {
   font-family: 'Material Icons';
@@ -334,7 +334,8 @@ dcs > a:hover:before {
 }
 
 #typeset {
-  padding-left: 2%;
+  width: 60%;
+  padding-left: 4%;
 }
 
 #abTitle {
@@ -508,6 +509,10 @@ fi {
   padding-bottom: 0px; 
 }
 
+.history {
+  
+}
+
 
 .imagePopup {
     display: none; /* Hidden by default */
@@ -551,3 +556,10 @@ fi {
   vertical-align: middle;
 }
 
+#history {
+  visibility: hidden;
+  position: fixed;
+}
+#history.box {
+  
+}

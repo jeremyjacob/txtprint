@@ -1,4 +1,4 @@
-// I basically have no idea what half the shit in here does (even though I wrote it), but all you need to know is it handles printing and WebUSB
+// Handles WebUSB connection
 
 (function() {
   var port;
