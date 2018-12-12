@@ -25,7 +25,6 @@
 }
 
 
-
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -532,20 +531,6 @@ fi {
     transition: all 0.5s;
 }
 
-.imagePopup img{
-  margin: auto;
-  display: block;
-  /*width: 80%;*/
-  background-color: #eee;
-  border-radius: 3px;
-  margin-top: 500px;
-  max-width: 700px;
-  cursor: default;
-  transition: all 1s;
-}
-.imagePopup img.open {
-  margin-top: 0px;
-}
 
 .modalSubtext {
   /*position: relative;*/
@@ -565,8 +550,39 @@ fi {
   top: 0;
   left: 0;
   right: 0;
+  opacity: 0;
   background: #000000AA;
   width: 100%;
   height: 100%;
+  transition: opacity 0.15s linear;
+} 
+#history.open {
+  visibility: visible;
+  opacity: 1;
 }
+#historyCard {
+  position: relative;
+  width: 335px;
+  height: 520px;
+  margin: auto;
+  border: 2px solid #bbb;
+  border-radius: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #eee;
+}
+#historyTitle {
+  display: table;
+  position: relative;
+  width: 0%;
+  height: 10%;
+  margin: auto;
+  margin-top: 15px;
+  color: #555;
+  font-size: 24px;
 
+} #historyLine {
+  width: 70%;
+  height: 3px;
+  background: #000;
+}

@@ -11,3 +11,9 @@ function textFocus() {
   sInputs.classList.add('lowered');
   });
 }
+document.getElementById('history').onclick = function(){
+    this.classList.remove('open');
+}
+document.getElementById('historyCard').onclick = function(){
+    event.stopPropagation();
+}
