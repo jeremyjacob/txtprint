@@ -1,5 +1,4 @@
 /*eslint-env browser*/
-/*eslint no-unused-vars: "error"*/
 
 //document.querySelectorAll('.updateOuter').forEach(function(element, index) {
 //  var delay = index/18;
@@ -16,4 +15,8 @@ document.getElementById('history').onclick = function(){
 }
 document.getElementById('historyCard').onclick = function(){
     event.stopPropagation();
+}
+function scaleback(direction) {
+  if (direction == 1) {document.querySelector('.topbar').classList.add('scaleback');}
+  else if (direction == 0) {document.querySelector('.topbar').classList.remove('scaleback');}
 }

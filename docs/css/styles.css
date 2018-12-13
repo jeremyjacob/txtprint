@@ -143,7 +143,9 @@ body > .topbar{position:fixed;}
   list-style-type: none;
   margin: 0;
   padding: 0;
-  transition: all 0.15s linear;
+  transform: scale(1, 1);
+  transition: box-shadow 0.15s linear;
+  transition: transform 0.15s cubic-bezier(0.77, 0, 0.175, 1);
 }
 .topbar.active {
   box-shadow: 0 0 10px rgba(0,0,0,0.4); 
@@ -337,6 +339,7 @@ dcs > a:hover:before {
 #typeset {
   width: 60%;
   padding-left: 4%;
+  
 }
 
 #abTitle {
@@ -581,8 +584,12 @@ fi {
   color: #555;
   font-size: 24px;
 
-} #historyLine {
+}
+#historyLine {
   width: 70%;
   height: 3px;
   background: #000;
+}
+.scaleback {
+  transform: scale(0.8, 0.8);
 }
