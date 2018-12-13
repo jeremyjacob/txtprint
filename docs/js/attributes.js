@@ -23,3 +23,16 @@ function scaleback(direction) {
     document.querySelector('#history').classList.remove('open');
   }
 }
+
+document.addEventListener("keydown", function(event) {
+  code = event.code;
+  switch(code) {
+    case "Escape":
+      console.log("exut");
+      document.querySelector('#wrapper').classList.remove('scaleback');
+      document.querySelector('#history').classList.remove('open');
+    break;  
+    default:
+    console.log("yeye");
+      break;
+}});
