@@ -10,13 +10,16 @@ function textFocus() {
   sInputs.classList.add('lowered');
   });
 }
-document.getElementById('history').onclick = function(){
-    this.classList.remove('open');
-}
-document.getElementById('historyCard').onclick = function(){
-    event.stopPropagation();
-}
+document.getElementById('history').onclick = function(){scaleback(0);};
+document.getElementById('historyCard').onclick = function(){event.stopPropagation();};
+
 function scaleback(direction) {
-  if (direction == 1) {document.querySelector('.topbar').classList.add('scaleback');}
-  else if (direction == 0) {document.querySelector('.topbar').classList.remove('scaleback');}
+  if (direction == 1) {
+    document.querySelector('#wrapper').classList.add('scaleback');
+    document.querySelector('#history').classList.add('open');
+  }
+  else if (direction === 0) {
+    document.querySelector('#wrapper').classList.remove('scaleback');
+    document.querySelector('#history').classList.remove('open');
+  }
 }
