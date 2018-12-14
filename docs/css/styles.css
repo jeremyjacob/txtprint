@@ -45,6 +45,9 @@
 ::selection {
   background: #ffb7b7;
 }
+::-webkit-scrollbar {
+    width: 0px; 
+}
 
 body {
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
@@ -554,12 +557,12 @@ fi {
   left: 0;
   right: 0;
   opacity: 0;
-  background: #000000BC;
+  overflow: hidden;
+  background: #f1f1f1;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  transition-delay: 0.1s;
-  transition: opacity 0.2s linear;
+  transition: opacity 0.3s linear;
 } 
 #history.open {
   pointer-events: auto;
@@ -573,10 +576,10 @@ fi {
   margin: auto;
   border-radius: 10px;
   top: 12%;
-  overflow: scroll;
+  overflow-y: scroll;
   transform: translateY(-50%);
   background: #eee;
-  transform: scale(0.5,0.5);
+  transform: scale(0.8,0.8);
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 #history.open #historyCard {
