@@ -60,13 +60,7 @@
     connectButtons.forEach(function(elem) {
         elem.addEventListener('click', function() {
           if (port) {
-            port.disconnect();
-            document.getElementById('tsDisconnected').style.display = 'block';
-            document.getElementById('tsConnected').style.display = 'none';
-            Object.assign(printButton.style,{'background-color':'#6e6e6e'});
-            printButton.style.cursor = "not-allowed";
-            connected = false;
-            port = null;
+            location.reload();
           } else {
             serial.requestPort().then(selectedPort => {
               port = selectedPort;

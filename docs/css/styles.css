@@ -305,7 +305,7 @@ dcs > a:hover:before {
   margin-top: 0.9px;
   padding-bottom: 6px;
   padding-left: 0px;
-  margin-left: 6px;
+  margin-left: 110px;
   cursor: pointer;
 } #tsConnected::after {
   z-index: -1;
@@ -562,7 +562,7 @@ fi {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  transition: opacity 0.3s linear;
+  transition: opacity 0.15s linear;
 } 
 #history.open {
   pointer-events: auto;
