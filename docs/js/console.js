@@ -29,11 +29,7 @@
           
         };
         port.onReceiveError = error => {
-            document.getElementById('tsDisconnected').style.display = 'block';
-            document.getElementById('tsConnected').style.display = 'none';
-            Object.assign(printButton.style,{'background-color':'#6e6e6e'});
-            printButton.style.cursor = "not-allowed";
-            connected = false;
+            location.reload();
           console.log('Receive error: ' + error);
         };
       }, error => {
@@ -47,7 +43,7 @@
     if (connected === true) {
       box.classList.add('printing');
       typing.innerHTML = "printing";
-      console.log(textEncoder.encode(box.value));
+      //console.log(textEncoder.encode(box.value));
       //console.log(box.value);
       port.send(textEncoder.encode(box.value)).catch(error => {
         console.log('Send error: ' + error);
