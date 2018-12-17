@@ -19,3 +19,20 @@ document.addEventListener("keydown", function(event) {
     default:
       break;
 }});
+
+function toggleconnect() {
+    console.log('yeye');
+    if (port) {
+      location.reload();
+    } else {
+      serial.requestPort().then(selectedPort => {
+        port = selectedPort;
+        connect();
+      }).catch(error => {
+        
+        console.log('Connection error: ' + error);
+      });
+    }
+    
+
+}

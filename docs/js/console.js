@@ -55,6 +55,7 @@
 
     connectButtons.forEach(function(elem) {
         elem.addEventListener('click', function() {
+          console.log('yeye');
           if (port) {
             location.reload();
           } else {
@@ -69,6 +70,7 @@
           
         });
     });
+    console.log(connectButtons);
     serial.getPorts().then(ports => {
       if (ports.length === 0) {
         // console.log('No devices found.');
