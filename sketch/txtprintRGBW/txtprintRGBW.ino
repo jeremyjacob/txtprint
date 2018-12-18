@@ -21,7 +21,7 @@ WebUSB WebUSBSerial(1 /* https:// */, "txtprint.us");
 
 #define Serial WebUSBSerial
 
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_RBGW + NEO_KHZ800);
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRBW + NEO_KHZ800);
 
 int delayval = 50;
 
