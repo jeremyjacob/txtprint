@@ -272,7 +272,7 @@ dcs > a:hover:before {
 
 #tsDisconnected {
   position: absolute;
-  top: 204.5px;
+  top: 204px;
   margin-top: 0.9px;
   padding-bottom: 6px;
   padding-left: 0px;
@@ -301,7 +301,7 @@ dcs > a:hover:before {
 #tsConnected {
   display: none;
   position: absolute;
-  top: 204.5px;
+  top: 204px;
   margin-top: 0.9px;
   padding-bottom: 6px;
   padding-left: 0px;
@@ -634,3 +634,4 @@ fi {
 .scaleback {
   transform: scale(1.0, 1.0);
 }
+
