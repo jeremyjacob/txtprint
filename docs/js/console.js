@@ -16,8 +16,8 @@
         console.log('Connected.');
         Object.assign(printButton.style,{'background-color':'#6AC761EE'});
         printButton.style.cursor = "pointer";
-        document.getElementById('tsDisconnected').style.display = 'none';
-        document.getElementById('tsConnected').style.display = 'block';
+        document.getElementById('tsDisconnected').style.visibility = 'hidden';
+        document.getElementById('tsConnected').style.visibility = 'visible';
         connected = true;
         port.onReceive = data => {
           var textDecoder = new TextDecoder();
@@ -29,8 +29,8 @@
           
         };
         port.onReceiveError = error => {
-            document.getElementById('tsDisconnected').style.display = 'block';
-            document.getElementById('tsConnected').style.display = 'none';
+            document.getElementById('tsDisconnected').style.visibility = 'visible';
+            document.getElementById('tsConnected').style.visibility = 'hidden';
             Object.assign(printButton.style,{'background-color':'#6e6e6e'});
             printButton.style.cursor = "not-allowed";
             connected = false;
@@ -60,7 +60,13 @@
     connectButtons.forEach(function(elem) {
         elem.addEventListener('click', function() {
           if (port) {
-            location.reload();
+            port.disconnect();
+            document.getElementById('tsDisconnected').style.visibility = 'visible';
+            document.getElementById('tsConnected').style.visibility = 'hidden';
+            Object.assign(printButton.style,{'background-color':'#6e6e6e'});
+            printButton.style.cursor = "not-allowed";
+            connected = false;
+            port = null;
           } else {
             serial.requestPort().then(selectedPort => {
               port = selectedPort;

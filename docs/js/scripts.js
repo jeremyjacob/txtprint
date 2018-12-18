@@ -1,10 +1,9 @@
 /*eslint-env browser*/
 //// Defines ////
-var content = document.getElementById("content");
 var typeset = document.getElementById("typeset");
 var updates = document.getElementById("updates");
 var docs = document.getElementById("docs");
-var docHome = document.getElementById("about");
+var info = document.getElementById("info");
 var about = document.getElementById("about");
 var box = document.getElementById("text");
 var charCount = document.getElementById("charCount");
@@ -14,8 +13,6 @@ var topbar = document.querySelector('.topbar');
 var scrollNav = window.scrollTop;
 var char = true;
 var boxCol = 34;
-var observe, page;
-var index = 0;
 
 //// Expanding textbox & counting chars and words ////
 box.setAttribute('style', 'height:' + (box.scrollHeight) + 'px;overflow-y:hidden;');
@@ -84,7 +81,7 @@ function version(v) {
 
 //// setPage code for dynamically changing the page content basic on url hashes ////
 function setPage() {
-  page = window.location.hash.substring(1);
+  var page = window.location.hash.substring(1);
   switch (page) {
     case "updates":
       displayNone();
@@ -95,6 +92,11 @@ function setPage() {
       displayNone();
       docs.style.display = "block";
       document.title = "txtprint // docs";
+      break;
+    case "info":
+      displayNone();
+      info.style.display = "block";
+      document.title = "txtprint // info"
       break;
     case "about":
       displayNone();
@@ -114,6 +116,7 @@ function displayNone() {
   typeset.style.display = "none";
   updates.style.display = "none";
   docs.style.display = "none";
+  info.style.display = "none";
   about.style.display = "none";
 }
 
