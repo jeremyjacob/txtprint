@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body onload="version('Version 1.8 release')" onhashchange="setPage()" id="content" style="height: 100vh;width: 100vw">
+<body onload="version('Version 0.2 beta')" onhashchange="setPage()" id="content" style="height: 100vh;width: 100vw">
     <div id="wrapper">
             <div class="topbar">
                 <div class="nav">
@@ -26,8 +26,9 @@
             <t class="tsSubtext" style="z-index: 2;">Feather: </t>
             <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>
             <t class="tsSubtext tsStatus" id="tsConnected" title="Click to disconnect">connected</t>
+            <object style="position: absolute; margin-left: 99px;" data="assets/plug.svg" type="image/svg+xml"></object>
             <br>
-            
+            <br>
             <div class="input">
                 <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" rows="8" cols="56" id="text"></textarea>
                 <br>
@@ -57,7 +58,7 @@
                     get that as good as I can for this project.</p>
                 <span class="attach image" onclick="window.open(window.location.href.split('#')[0] + 'assets/cat.jpg');">
               <t>File:</t>
-              <u onclick="">test.png</u>
+              <u onclick="">cat.png</u>
               <fi class="material-icons material-icons--outline">photo</fi>
             </span>
             </div>
