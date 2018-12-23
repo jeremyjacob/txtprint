@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="origin-trial" data-feature="WebUSB (For Chrome M57+)" data-expires="2017-06-19" content="Ag83MurQOa5N4SKRCqqtSlbycfe08s5LgUiqEI7J3jTk2NEIpRp7SLPz2i+EBDuXyf+AeRMdD6BI+ +kTSJmGzQEAAABReyJvcmlnaW4iOiJodHRwczovL3dlYnVzYi5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IldlYlVTQjIiLCJleHBpcnkiOjE0OTc4OTM2OTV9">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/t.png">
+    <script src="js/serial.js"></script>
+    <script src="js/console.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body onload="version('Version 1.8 release')" onhashchange="setPage()" id="content" style="height: 100vh;width: 100vw">
+    <div id="wrapper">
+            <div class="topbar">
+                <div class="nav">
+                    <li><a onclick="setPage();" id="tsnav" href="#typeset">typeset</a></li>
+                    <li><a onclick="setPage();" id="blnav" href="#updates">updates</a></li>
+                    <!--<li><a onclick="setPage();" id="dcnav" href="#docs">docs</a></li>-->
+                    <li><a onclick="setPage();" id="ifnav" href="#info">info</a></li>
+                    <li><a onclick="setPage();" id="abnav" href="#about">about</a></li>
+                </div>
+        </div>
+
+        <div style="height: 70px"></div>
+        <div id="typeset">
+            <p id="tsTitle">typeset</p>
+            <t class="tsSubtext" style="z-index: 2;">Feather: </t>
+            <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>
+            <t class="tsSubtext tsStatus" id="tsConnected" title="Click to disconnect">connected</t>
+            <br>
+
+            <div class="input">
+                <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" rows="8" cols="56" id="text"></textarea>
+                <br>
+                    <sInput style="padding-left: 18px;padding-right: 20px;" id="textStatus">ready</sInput>
+<!--                     <sInput style="padding-left: 18px;text-decoration: underline;cursor:pointer;user-select: none;" onclick="scaleback(1);">history</sInput> -->
+                    <sInput style="text-decoration: underline;cursor:pointer;user-select: none;" title="Click for word count" id="charDisplay" onclick="countMode()">characters</sInput>
+                    <sInput id="charCount">0</sInput>
+                <br>
+                <button id="print">Print</button>
+            </div>
+
+        </div>
+        <div id="updates" style="display:none;">
+
+            <p id=udTitle>weekly updates</p>
+            <p id=udSubtext style="font-size: 18px;">txtprint // jeremy jacob</p>
+            <div style="height: 60px"></div>
+            <div class="updateOuter" id="week4">
+                <div class="updateMid">
+                    <h1 class="updateInner">December 17th<span class="updateInnerBG"></span></h1>
+                    <p class=updateW>week 4</p>
+                </div>
+
+                <p class=updateP>This week I made some more final changes to the website, as well as adding an 'info' section that I will fill in later with additional info about the project and instructions for re-creating it. I spent way too much time trying to make an animated vector connection icon, but in the end it made the typeset page feel too clutered and it has been removed. The Github repo now has a 'sketch' folder where a priliminary Arduino sketch is located. Right now using that sketch one can use 16 colors to control an LED strip from the typeset page. I'll bring a board with this sketch flashed to demo in class. At this point in the project I am going to be transitioning to the hardware side of it, as the website is largely comepleted. This means ordering a thermal printer, making a 3D model for the housing, and writing code for the printer.</p>
+
+            </div>
+            <div class="sp"></div>
+            <div class="updateOuter" id="week3">
+                <div class="updateMid">
+                    <h1 class="updateInner">December 10th<span class="updateInnerBG"></span></h1>
+                    <p class=updateW>week 3</p>
+                </div>
+
+                <p class=updateP>In class today I was not as productive as previous weeks, and no major features were added. It was a sort of catch up week for all the bugs and formatting errors the site had. I also researched better ways to accomplish some of the more complicated tasks of the webste on the <tl class="updateP" onclick="window.open('https://developer.mozilla.org/en-US/')">MDN Docs</tl>. It's a great resource for everything HTML, CSS, and JavaScript.</p>
+
+            </div>
+            <div class="sp"></div>
+            <div class="updateOuter" id="week2">
+                <div class="updateMid">
+                    <h1 class="updateInner">December 3rd<span class="updateInnerBG"></span></h1>
+                    <p class=updateW>week 2</p>
+                </div>
+
+                <p class=updateP>My plan until the next checkpoint is to continue improving the website to be more responsive, and work better on mobile devices. This class period I added the ability to attach files as seen in this post. I also made some slight design improvements
+                    in JS and CSS to make the website more clear and easier to use. An example can be seen by scrolling down on this page, and watching the navigation bar, a shadow should appear. This is to show that the bar is above the rest of the page,
+                    and to seperate it from the body of a blog post, which is the same color. A full log of my changes can be seen on the history tab of the Github. User experience is an important part of any website or product, which is why I'm trying to
+                    get that as good as I can for this project.</p>
+                <span class="attach image" onclick="window.open(window.location.href.split('#')[0] + 'assets/cat.jpg');">
+              <t>File:</t>
+              <u onclick="">test.png</u>
+              <fi class="material-icons material-icons--outline">photo</fi>
+            </span>
+            </div>
+            <div class="updateOuter" id="week1">
+                <div class="updateMid">
+                    <h1 class="updateInner">November 26th<span class="updateInnerBG"></span></h1>
+                    <p class=updateW>week 1</p>
+                </div>
+
+                <p class=updateP>This class and the week before (fall break) I worked largely on the website. You can see that here by clicking around. Besides formatting the website to work with mobile devices, most of my work was done on the #typeset page. I included the
+                    WebUSB library so now clicking 'disconnected' will prompt to connect. Once connected you can now use the print button and input box to send serial data the the Arduino device. Late this will be parsed by the sketch on the txtprint device
+                    and sent to the thermal printer. Other minor animations and bug fixes were also made. For a full list of every code change check the Github. (<tl class="updateP" style="cursor: pointer;text-decoration: underline;" onclick="window.open('https://github.com/jeremyjacob/txtprint/tree/master/docs')">https://github.com/jeremyjacob/txtprint/tree/master/docs</tl>)</p>
+
+            </div>
+            <div class="sp"></div>
+            <div class="updateOuter" id="week0">
+                <div class="updateMid">
+                    <h1 class="updateInner">November 5th<span class="updateInnerBG"></span></h1>
+                    <p class=updateW>week 0</p>
+                </div>
+
+                <p class=updateP>This class period I began work on this website. That includes the text for the #about section, setting up the navigation bar and #typeset page. I later finished the updates page at home. I decided to make this site a one page design, using
+                    URL fragments for navigation. This uses JavaScript to pipe HTML to the content div, based on the current URL fragment. This allows for a more fluid and smooth experience, as well as less data being retrieved on navigation. Using fragments
+                    retains the use of back and forward buttons in Chrome, whereas using a variable to keep track of the current page does not (this is what I was using before). My goal is to finish the site design by then end of this month, so I'm already
+                    on the right track to do that. As of writing this, the docs section is still entirely incomplete and the typeset & updates sections need work. I also plan to buy a domain and host this site by then end of November. I will update this page
+                    every week, so that one can see my steps and how long they took. The final code and assets will be posted in #docs.</p>
+            </div>
+
+
+        </div>
+        <div id="docs" style="display:none;">
+            <div id="docSidebar">
+                <div id="docList">
+                    <div id="docSmallSidebar"></div>
+                    <dcs><a onclick="setDocPage(home)">home</a></dcs>
+                    <dcs><a onclick="setDocPage(website)">website</a></dcs>
+                    <dcs><a onclick="setDocPage(arduino)">arduino</a></dcs>
+                    <dcs><a onclick="setDocPage(models)">models</a></dcs>
+                </div>
+            </div>
+            <div id=""></div>
+        </div>
+        <div id="info" style="display:none;">
+            info (under development)
+        </div>
+        <div id="about" style="display:none;">
+            <p id="abTitle">txtprint</p>
+
+            <p id="abSubtext">a project by Jeremy Jacob for Full Steam Ahead</p>
+            <p id="abSubtext">AE Wright Middle School, Robotics 8th Grade</p>
+            <span style="height: 30px"></span>
+            <p id="abSubtext" style="font-style:italic">txtprint is a 3d printed portable thermal printer designed for students and classroom use. It uses the Chrome serial API to communicate with an Arduino-style board. I made it because from personal expirience, being able to quickly print conclusions
+                or other text in class is an invaluable asset. I was a group member in a previous FSA project, Classmate. That project also used an Arduino, so I have expirience in that area. As for web coding, it is largely new to me. This is the first full
+                website I have built enitely from scratch. It uses the WebUSB protocol in Chrome to connect and communicate with a Feather 32u4 board. Made by Adafruit this device has the capability to work with WebUSB, whereas a regular Arduino Uno wouldn’t.
+                It also has a built-in bluetooth chip, so in the future I can add support for BT and USB connections. Feel free to take a peek at the source code for both the website and Arduino sketch on the github page. If you have feedback for the project
+                or website, please feel free to email me at</p>
+            <p id="abSubtext" style="font-style:italic;padding-bottom:15px;">at <u onClick="javascript:window.open('mailto:jeremjacob5705@student.lvusd.org?Subject=txtprint%20feedback', 'mail');event.preventDefault()" style="cursor: pointer;" target="_top">jeremjacob5705@student.lvusd.org</u></p>
+            <div class="abHighlight"></div>
+        </div>
+    </div>
+    <script src="js/scripts.js"></script>
+    <script src="js/attributes.js"></script>
+</body>
+
+</html>
