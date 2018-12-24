@@ -50,9 +50,14 @@
 body {
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
   font-family: 'Google Sans';
-  
 }
-
+a {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #000;
+} a:hover {
+  text-decoration: none;
+}
 #text {
     font-size: 14px;
     padding: 16px 18px;
@@ -422,7 +427,23 @@ dcs > a:hover:before {
   flex: 0 0 auto;
   color: #535353;
   cursor: default;
+  height: 0px;
+} .updateInner::after {
+  content: '';
+  position: relative;
+  bottom: 20px;
+  display: inline-block;
+  height: 5px;
+  width: 25%;
+  background: #fffb07;
+  animation: widthExtend 400ms cubic-bezier(0.19, 1, 0.22, 1);
+  animation-fill-mode: forwards;
 }
+@keyframes widthExtend {
+  from {width: 15%}
+  to {width: 100%;}
+}
+
 
 .updateP {
   width: 95%;

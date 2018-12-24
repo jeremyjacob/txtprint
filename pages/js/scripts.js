@@ -29,6 +29,11 @@ function OnInput() {
   box.style.height = (box.scrollHeight) + 'px';
 }
 
+document.addEventListener("DOMContentLoaded", function(event) {
+    document.body.classList.add("loaded");
+});
+
+
 //// Load cookie w/ anim ////
 var storedBox = localStorage.getItem('typeText');
 if (localStorage.getItem('typeText') !== null) {
@@ -139,9 +144,6 @@ function realWordCount() {
   else {return box.value.trim().split(/\s+/).length;}
 }
 
-
-//// DOCS CODE ////
-
 window.addEventListener('scroll', function() {
         scrollNav = window.scrollY;
         if (scrollNav > 0) {
@@ -151,8 +153,44 @@ window.addEventListener('scroll', function() {
         }
 });
 
-//// POPUP ////
 
-function openUpdate() {
-  console.log(this.id);
+
+function textFocus() {
+  document.querySelectorAll('sInput').forEach(function(sInputs) {
+  sInputs.classList.add('lowered');
+  });
 }
+
+document.addEventListener("keydown", function(event) {
+  code = event.code;
+  switch(code) {
+    case "Escape":
+    break;  
+    default:
+      break;
+}});
+
+function mkvar(name, val) {
+  this[name] = val;
+}
+
+
+var updateList = document.getElementById('updateList');
+
+
+fetch("js/updates.json")
+  .then(res => res.json())
+  .then(function(data) {
+    for (var i=data.length-1;i >= 0;i--) {
+      var update = data[i];
+      var udtmpl = document.getElementById('update-template').content.cloneNode(true);
+      udtmpl.querySelector('.updateOuter').id = ('week'+update.week);
+      udtmpl.querySelector('.updateInner').innerText = update.date;
+      udtmpl.querySelector('.updateW').innerText = ('week '+update.week);
+      udtmpl.querySelector('.updateP').innerHTML = (update.body);
+      updateList.appendChild(udtmpl);
+    }
+    
+  })
+
+
