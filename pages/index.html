@@ -8,15 +8,15 @@
         <script src="js/console.js"></script>
         <link rel="stylesheet" href="css/styles.css">
     </head>
-    <body onload="version('Version 1.8 release')" onhashchange="setPage()" id="content" style="height: 100vh;width: 100vw">
+    <body onload="version('Version 1.9 release')" onhashchange="setPage()" id="content" style="height: 100vh;width: 100vw">
         <div id="wrapper">
             <div class="topbar">
                 <div class="nav">
-                    <li><a onclick="setPage();" id="tsnav" href="#typeset">typeset</a></li>
-                    <li><a onclick="setPage();" id="blnav" href="#updates">updates</a></li>
-                    <!--<li><a onclick="setPage();" id="dcnav" href="#docs">docs</a></li>-->
-                    <li><a onclick="setPage();" id="ifnav" href="#info">info</a></li>
-                    <li><a onclick="setPage();" id="abnav" href="#about">about</a></li>
+                    <li><a onclick="setPage('typeset');" id="tsnav">typeset</a></li>
+                    <li><a onclick="setPage('updates');" id="blnav">updates</a></li>
+                    <li><a onclick="setPage('faq');" style="font-size: 11pt;top:3px;font-weight: bold;" id="fqnav">FAQ</a></li>
+                    <li><a onclick="setPage('code');" id="cdnav">code</a></li>
+                    <li><a onclick="setPage('about');" id="abnav">about</a></li>
                 </div>
             </div>
             <div style="height: 70px"></div>
@@ -55,20 +55,61 @@
                   </template>
                 </div>
             </div>
-            <div id="docs" style="display:none;">
-                <div id="docSidebar">
-                    <div id="docList">
-                        <div id="docSmallSidebar"></div>
-                        <dcs><a onclick="setDocPage(home)">home</a></dcs>
-                        <dcs><a onclick="setDocPage(website)">website</a></dcs>
-                        <dcs><a onclick="setDocPage(arduino)">arduino</a></dcs>
-                        <dcs><a onclick="setDocPage(models)">models</a></dcs>
-                    </div>
+            
+            <div id="faq" style="display:none;">
+                <p id="udTitle">FAQ</p>
+                <p id="udSubtext" style="font-size: 18px">nobody asked but here you go</p>
+                <div style="height: 60px"></div>
+                <div class="faqCard">
+                  <span class="faqLine"></span>
+                  <p class="faqTitle">What is typeset?</p>
+                  <p class="faqText">Typeset is the page where you can connect to the printer, and type paragraphs to print.</p>
                 </div>
-                <div id=""></div>
+                <div class="faqCard">
+                  <span class="faqLine"></span>
+                  <p class="faqTitle">Does it work on mobile?</p>
+                  <p class="faqText">The printing itself can only be done on modern desktop Chrome and Chrome for Android. iPhone support is impsobile due to Apple's hardware restrictions.</p>
+                </div>
+                <div class="faqCard">
+                  <span class="faqLine"></span>
+                  <p class="faqTitle">Design choices</p>
+                  <p class="faqText">Originally the site had a more typewriter feel, but I dropped with in excanche for a more modern font and layout. I think this makes it easier on the eyes, if less thematic. The accent color (yellow #fffb07) is spread throughout the site and resembles a highlight color. It helps give the pages life, instead of everything being grayscale.</p>
+                </div>
+                <div class="faqCard">
+                  <span class="faqLine"></span>
+                  <p class="faqTitle">How does it work?</p>
+                  <p class="faqText">The simple version is that it uses a library to connect through your computer or phone to the Arduino device which takes the input and converts it into data that the thermal printer can use. For a more in depth explanation, see the code tab.</p>
+                </div>
+                <div class="faqCard">
+                  <span class="faqLine"></span>
+                  <p class="faqTitle">What languages are used in this project?</p>
+                  <p class="faqText">This website is coded, like most websites, using a combination of HTML5, CSS3, and JavaScript. The printer code is written in Arduino C.</p>
+                </div>
+                <div class="faqCard">
+                  <span class="faqLine"></span>
+                  <p class="faqTitle">jQuery?</p>
+                  <p class="faqText">In an effort to keep this website as fast and pure as possible, I have limited the number of external libraries to just WebUSB, as there's no way around using that. jQuery is just an easier was to do things you can do with a little more time in regular JavaScript. For me, learning pure JS is more useful as it will likely be around for longer than jQuery.</p>
+                </div>
+                <div class="faqCard">
+                  <span class="faqLine"></span>
+                  <p class="faqTitle">Does it work on mobile?</p>
+                  <p class="faqText">The printing itself can only be done on modern desktop Chrome and Chrome for Android. iPhone support is impsobile due to Apple's hardware restrictions.</p>
+                </div>
+                <div class="faqCard">
+                  <span class="faqLine"></span>
+                  <p class="faqTitle">How much of this did you write yourself?</p>
+                  <p class="faqText">Aside from the WebUSB code (serial.js and part of console.js) it is all written by me. I used the MDN Docs and w3schools for references on CSS, HTML, and JS code. There were also numerous fourm threads that aided me with specific problems I ran into when developing txtprint.</p>
+                </div>
+                <div id="feedbackContainer">
+                  <form autocomplete="off" action="">
+                    <input type="text" id="feedback" name="feedback">
+                  </form>
+                </div>
             </div>
-            <div id="info" style="display:none;">
-                info (under development)
+            
+            <div id="code" style="display:none;">
+                <p id="udTitle">code</p>
+                <p id="udSubtext" style="font-size: 18px">a more in depth explanation</p>
             </div>
             <div id="about" style="display:none;">
                 <p id="abTitle">txtprint</p>

@@ -1,0 +1,36 @@
+[
+  {
+      "week": "0",
+      "date": "November 5th",
+      "attach": "",
+      "body": "This class period I began work on this website. That includes the text for the #about section, setting up the navigation bar and #typeset page. I later finished the updates page at home. I decided to make this site a one page design, using URL fragments for navigation. This uses JavaScript to pipe HTML to the content div, based on the current URL fragment. This allows for a more fluid and smooth experience, as well as less data being retrieved on navigation. Using fragments retains the use of back and forward buttons in Chrome, whereas using a variable to keep track of the current page does not (this is what I was using before). My goal is to finish the site design by then end of this month, so I'm already on the right track to do that. As of writing this, the docs section is still entirely incomplete and the typeset & updates sections need work. I also plan to buy a domain and host this site by then end of November. I will update this page every week, so that one can see my steps and how long they took. The final code and assets will be posted in #docs."  
+  },
+  
+  {
+      "week": "1",
+      "date": "November 26th",
+      "attach": "",
+      "body": "This class and the week before (fall break) I worked largely on the website. You can see that here by clicking around. Besides formatting the website to work with mobile devices, most of my work was done on the #typeset page. I included the WebUSB library so now clicking 'disconnected' will prompt to connect. Once connected you can now use the print button and input box to send serial data the the Arduino device. Late this will be parsed by the sketch on the txtprint device and sent to the thermal printer. Other minor animations and bug fixes were also made. For a full list of every code change check the <a href='https://github.com/jeremyjacob/txtprint' target='_blank' >github</a>."
+  },
+  
+  {
+      "week": "2",
+      "date": "December 3rd",
+      "attach": "",
+      "body": "My plan until the next checkpoint is to continue improving the website to be more responsive, and work better on mobile devices. This class period I added the ability to attach files as seen in this post. EDIT: this is broken so in the future I'll just direct link the media. I also made some slight design improvements in JS and CSS to make the website more clear and easier to use. An example can be seen by scrolling down on this page, and watching the navigation bar, a shadow should appear. This is to show that the bar is above the rest of the page, and to seperate it from the body of a blog post, which is the same color. A full log of my changes can be seen on the history tab of the Github. User experience is an important part of any website or product, which is why I'm trying to get that as good as I can for this project."
+  },
+  
+  {
+      "week": "3",
+      "date": "December 10th",
+      "attach": "",
+      "body": "In class today I was not as productive as previous weeks, and no major features were added. It was a sort of catch up week for all the bugs and formatting errors the site had. I also researched better ways to accomplish some of the more complicated tasks of the webste on the <a href='https://developer.mozilla.org/en-US/' target='_blank' >MDN docs</a>. It's a great resource for everything HTML, CSS, and JavaScript."
+  },
+  
+    {
+      "week": "4",
+      "date": "December 17th",
+      "attach": "",
+      "body": "This week I made some more final changes to the website, as well as adding an FAQ and code section that I will fill in later with additional info about the project and instructions for re-creating it. I spent way too much time trying to make an animated vector connection icon, but in the end it made the typeset page feel too clutered and it has been removed. The Github repo now has a 'sketch' folder where a priliminary Arduino sketch is located. Right now using that sketch one can use 16 colors to control an LED strip from the typeset page. I'll bring a board with this sketch flashed to demo in class. At this point in the project I am going to be transitioning to the hardware side of it, as the website is largely comepleted. This means ordering a thermal printer, making a 3D model for the housing, and writing code for the printer."
+  }
+]

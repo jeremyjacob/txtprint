@@ -2,8 +2,8 @@
 //// Defines ////
 var typeset = document.getElementById("typeset");
 var updates = document.getElementById("updates");
-var docs = document.getElementById("docs");
-var info = document.getElementById("info");
+var faq = document.getElementById("faq");
+var code = document.getElementById("code");
 var about = document.getElementById("about");
 var box = document.getElementById("text");
 var charCount = document.getElementById("charCount");
@@ -29,9 +29,7 @@ function OnInput() {
   box.style.height = (box.scrollHeight) + 'px';
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    document.body.classList.add("loaded");
-});
+document.addEventListener("DOMContentLoaded", function(event) {document.body.classList.add("loaded");});
 
 
 //// Load cookie w/ anim ////
@@ -56,9 +54,13 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
   console.log("Mobile");
 }
 
-//// Default to #typset ////
-setPage(0);
-if (window.location.hash.substring(1) === "") {window.location.hash = 'typeset';}
+if (window.location.hash !== '') { 
+  setPage(window.location.hash.substr(1));
+  document.cookie = "location="+window.location.hash.substr(1);
+  history.pushState("", document.title, window.location.pathname + window.location.search); 
+} else {
+  setPage(document.cookie.split('=')[1]);
+}
 
 //// Test if client is Chrome ////
 var isChromium = window.chrome;
@@ -85,23 +87,23 @@ function version(v) {
 }
 
 //// setPage code for dynamically changing the page content basic on url hashes ////
-function setPage() {
-  var page = window.location.hash.substring(1);
+function setPage(page) {
+  document.cookie = "location="+page;
   switch (page) {
     case "updates":
       displayNone();
       updates.style.display = "block";
       document.title = "txtprint // updates";
       break;
-    case "docs":
+    case "faq":
       displayNone();
-      docs.style.display = "block";
-      document.title = "txtprint // docs";
+      faq.style.display = "block";
+      document.title = "txtprint // FAQ";
       break;
-    case "info":
+    case "code":
       displayNone();
-      info.style.display = "block";
-      document.title = "txtprint // info"
+      code.style.display = "block";
+      document.title = "txtprint // code";
       break;
     case "about":
       displayNone();
@@ -109,7 +111,6 @@ function setPage() {
       document.title = "txtprint // about";
       break;
     default:
-      window.location.hash = 'typeset';
       displayNone();
       typeset.style.display = "block";
       document.title = "txtprint // typeset";
@@ -120,8 +121,8 @@ function setPage() {
 function displayNone() {
   typeset.style.display = "none";
   updates.style.display = "none";
-  docs.style.display = "none";
-  info.style.display = "none";
+  faq.style.display = "none";
+  code.style.display = "none";
   about.style.display = "none";
 }
 
@@ -170,15 +171,9 @@ document.addEventListener("keydown", function(event) {
       break;
 }});
 
-function mkvar(name, val) {
-  this[name] = val;
-}
-
 
 var updateList = document.getElementById('updateList');
-
-
-fetch("js/updates.json")
+fetch("data/updates.json")
   .then(res => res.json())
   .then(function(data) {
     for (var i=data.length-1;i >= 0;i--) {
@@ -189,8 +184,10 @@ fetch("js/updates.json")
       udtmpl.querySelector('.updateW').innerText = ('week '+update.week);
       udtmpl.querySelector('.updateP').innerHTML = (update.body);
       updateList.appendChild(udtmpl);
-    }
-    
-  })
+    }})
+  .catch((error) => {
+    alert('Loading updates from JSON failed. Try using https://txtprint.us');
+    console.log(error);
+  }); 
 
 
