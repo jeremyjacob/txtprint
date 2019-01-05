@@ -54,10 +54,10 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
   console.log("Mobile");
 }
 
-if (window.location.hash !== '') { 
+if (window.location.hash !== '' ) { 
   setPage(window.location.hash.substr(1));
   document.cookie = "location="+window.location.hash.substr(1);
-  history.pushState("", document.title, window.location.pathname + window.location.search); 
+  history.replaceState({}, document.title, "."); 
 } else {
   setPage(document.cookie.split('=')[1]);
 }

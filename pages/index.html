@@ -59,6 +59,7 @@
             <div id="faq" style="display:none;">
                 <p id="udTitle">FAQ</p>
                 <p id="udSubtext" style="font-size: 18px">nobody asked but here you go</p>
+                <div id="faqwrap">
                 <div style="height: 60px"></div>
                 <div class="faqCard">
                   <span class="faqLine"></span>
@@ -101,9 +102,11 @@
                   <p class="faqText">Aside from the WebUSB code (serial.js and part of console.js) it is all written by me. I used the MDN Docs and w3schools for references on CSS, HTML, and JS code. There were also numerous fourm threads that aided me with specific problems I ran into when developing txtprint.</p>
                 </div>
                 <div id="feedbackContainer">
-                  <form name="feedback" autocomplete="off" method="POST" data-netlify="true">
-                    <input type="text" name="feedback_text" id="feedback">
+                  <t id="feedbacktext">OTHER QUESTIONS</t>
+                  <form name="feedback" autocomplete="off" method="POST" action="" data-netlify="true">
+                    <input type="text" id="feedback" name="feedback_text">
                   </form>
+                </div>
                 </div>
             </div>
             
