@@ -19,7 +19,11 @@
   75% {opacity: 1;}
   100% {margin-top: 0px;}
 }
-
+@keyframes opacityFadeIn {
+  0% {opacity: 0;}
+  20% {opacity: 0;}
+  100% {opacity: 1;}
+}
 @keyframes scaleIn {
   0% {transform: scale(0, 1);}
   100% {transform: scale(1, 1);}
@@ -40,14 +44,12 @@
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
-  /*display: inline-block;*/
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
-
 ::-webkit-scrollbar {
     width: 0px; 
 }
@@ -56,13 +58,19 @@ body {
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
   font-family: 'Google Sans';
 }
+#wrapper {
+  transition-delay: 0.05s;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 a {
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
   color: #000;
-} a:hover {
-  text-decoration: none;
+} a!.nav:hover {
+  text-decoration: underline;
 }
+
+/*TYPESET*/
 #text {
     font-size: 14px;
     padding: 16px 18px;
@@ -91,11 +99,14 @@ a {
     50%  {color: #6AC761;}
     100% {color: #2d2d2d;}
 }
-#text:focus {
-  /* border: 1.7px solid #BCCFBA; */
-  background-color: #fcfcfc;
+#text:focus {background-color: #fcfcfc;}
+.input {
+  z-index: -1;
+  padding-left: 5.1%;
+  padding-top: 20px;
+  outline: none;
+  display: inline-block;
 }
-
 sInput {
   position: relative;
   z-index: -1;
@@ -113,7 +124,6 @@ sInput.lowered {
   z-index: 0;
   bottom: 0px;
 }
-
 #print {
   background-color: #6e6e6e;
   color: #ffffff;
@@ -136,13 +146,7 @@ sInput.lowered {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.input {
-  z-index: -1;
-  padding-left: 5.1%;
-  padding-top: 20px;
-  outline: none;
-  display: inline-block;
-}
+/*NAVIGATION BAR*/
 body > .topbar{position:fixed;}
 .topbar{
   user-select: none;
@@ -161,9 +165,8 @@ body > .topbar{position:fixed;}
 .topbar.active {
   box-shadow: 0 0 10px rgba(0,0,0,0.4); 
 }
-
-.nav {
-    padding-left: 22px;
+#navs {
+  padding-left: 22px;
 }
 li {
   position: relative;
@@ -175,11 +178,8 @@ li a {
   position: relative;
   display: block;
   color: #000;
-  
   padding: 18px 16px;
   text-decoration: none;
-  
-  
 }
 li > a:hover {
   color: #000;
@@ -204,48 +204,6 @@ li > a:hover:before {
   -webkit-transform: scaleX(0.75);
   transform: scaleX(0.75);
 }
-
-
-dcs {
-  position: relative;
-  padding-bottom: 0px;
-  cursor: pointer;
-  width: 10px;
-  
-}
-dcs a {
-  position: relative;
-  display: block;
-  color: #000;
-  
-  padding: 18px 30px;
-  text-decoration: none;
-  width: 100px;
-}
-dcs > a:hover {
-  color: #000;
-}
-dcs > a:before {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 75%;
-  height: 24px;
-  bottom: 16px;
-  left: 0;
-  background-color: #fffb07;
-  visibility: hidden;
-  transform: translateX(-130px);
-  transform-origin: 20% 0%;
-  transition: all 620ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-dcs > a:hover:before {
-  visibility: visible;
-  transform-origin: 20% 0%;
-  transform: translateX(15px);
-
-}
-
 #content {margin: 0px;}
 #tsTitle {
   margin-top: 0px;
@@ -276,7 +234,6 @@ dcs > a:hover:before {
   color: #4e4e4e;
   vertical-align: middle;
 }
-
 #tsDisconnected {
   position: absolute;
   top: 204px;
@@ -331,13 +288,8 @@ dcs > a:hover:before {
   animation: 1s ease-out 0s 1 opacityFadeIn;
 } #tsConnected:hover::after{background: #6AC76188;}
 
-@keyframes opacityFadeIn {
-  0% {opacity: 0;}
-  20% {opacity: 0;}
-  100% {opacity: 1;}
-}
 
-
+/*UPDATES*/
 #udTitle {
   margin-top: 0px;
   font-size: 50px;
@@ -369,31 +321,6 @@ dcs > a:hover:before {
   
 }
 
-#abTitle {
-  margin-top: 0px;
-  font-size: 50px;
-  padding-left: 0px;
-  padding-top: 50px;
-  line-height: 0px;
-  color: #000;
-  text-align: center
-}
-#abSubtext {
-  margin: auto;
-  font-size: 14px;
-  width: 50%;
-  padding-left: 0px;
-  padding-top: 0px;
-  line-height: 28px;
-  color: #3d3d3d;
-  text-align: center;
-  transition: all 0.30s cubic-bezier(0.165, 0.84, 0.44, 1);
-  animation:fadeIn ease-in 1;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-  animation-duration: 0.6s;
-}
-
 .updateOuter {
   position:relative;
   top:0;
@@ -420,8 +347,6 @@ dcs > a:hover:before {
   animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   animation-duration: 0.6s;
 }
-
-
 .updateOuter .updateInnerBG {
   display: block;
   position: relative;
@@ -429,9 +354,7 @@ dcs > a:hover:before {
   width: 100%;
   background-color: #fffb07;
   transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  
 }
-
 .updateMid {
   display: flex;
 }
@@ -455,8 +378,6 @@ dcs > a:hover:before {
   from {width: 15%}
   to {width: 100%;}
 }
-
-
 .updateP {
   width: 95%;
 }
@@ -468,42 +389,6 @@ dcs > a:hover:before {
   padding-right: 25px;
   font-size: 17px;
 }
-
-
-#stats {
-  
-  position: absolute;
-  left: 800px;
-  color:#3d3d3d;
-}
-stat {
-  padding-left: 24px;
-  font-size: 14px;
-  line-height: 24.5px;
-  display:inline-block;
-}
-statTitle {
-  display: block;
-  font-size: 30px;
-}
-info {
-  font-size: 14px;
-  line-height: 24.5px;
-  display: inline;
-}
-
-
-fi {
-  position: absolute;
-  bottom: 7px;
-  opacity: 0.7;
-  padding-left: 23px;
-  display: inline-block;
-}
-#wrapper {
-  transition-delay: 0.05s;
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
 .scaleback {
   transform: scale(1.0, 1.0);
 }
@@ -513,8 +398,32 @@ tl {
 } tl:hover {
   text-decoration: none;
 }
-
-
+/*ABOUT*/
+#abTitle {
+  margin-top: 0px;
+  font-size: 50px;
+  padding-left: 0px;
+  padding-top: 50px;
+  line-height: 0px;
+  color: #000;
+  text-align: center
+}
+#abSubtext {
+  margin: auto;
+  font-size: 14px;
+  width: 50%;
+  padding-left: 0px;
+  padding-top: 0px;
+  line-height: 28px;
+  color: #3d3d3d;
+  text-align: center;
+  transition: all 0.30s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation:fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-duration: 0.6s;
+}
+/*FAQ*/
 .faqCard {
   margin-left: 5%;
   background: #fefefe;
@@ -535,11 +444,9 @@ tl {
 .faqCard:hover .faqCard::before {
   left: 19%;
 }
-
 #faqwrap {
   padding-left: 4%;
 }
-
 .faqTitle {
   font-size: 24px;
   transform: scale(1);
@@ -564,7 +471,6 @@ tl {
 .faqCard:hover .faqText {
   transform: translateY(-5px);
 }
-
 .faqText {
   margin-left: 20px;
   margin-right: 10px;
@@ -598,8 +504,6 @@ tl {
   color: #5a5a5a;
   letter-spacing: 0.7px;
   font-family: 'Google Sans Bold'
-  
-  
 }
 #feedbackContainer {
   padding: 50px;
@@ -607,4 +511,18 @@ tl {
   padding-top: 5px;
   border-radius: 10px;
   line-height: 30px;
+}
+
+/*CODE*/
+codeP {
+  
+}
+codeH1 {
+  
+}
+codeH2 {
+  
+}
+code {
+  
 }

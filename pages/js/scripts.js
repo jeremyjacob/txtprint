@@ -56,10 +56,7 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
 
 if (window.location.hash !== '' ) { 
   setPage(window.location.hash.substr(1));
-  document.cookie = "location="+window.location.hash.substr(1);
   history.replaceState({}, document.title, "."); 
-} else {
-  setPage(document.cookie.split('=')[1]);
 }
 
 //// Test if client is Chrome ////
