@@ -59,6 +59,8 @@ body {
   font-family: 'Google Sans';
 }
 #wrapper {
+  width: 100vw;
+  height: 100vh;
   transition-delay: 0.05s;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -450,7 +452,7 @@ tl {
 .faqTitle {
   font-size: 24px;
   transform: scale(1);
-  margin-left: 20px;
+  margin-left: 5%;
   padding-left: 11px;
   transform-origin: top left;
   color: #6e6e6e;
@@ -472,7 +474,7 @@ tl {
   transform: translateY(-5px);
 }
 .faqText {
-  margin-left: 20px;
+  margin-left: 5%;
   margin-right: 10px;
   color: #7e7e7e;
   font-size: 13px;
@@ -514,15 +516,37 @@ tl {
 }
 
 /*CODE*/
+#codeBody > * {
+  display: table;
+  padding-bottom: 20px;
+  color: #3d3d3d;
+}
+#codeBody > :not(code) {width: 70%;}
 codeP {
-  
+  margin-left: 12%;
+  color: #2d2d2d;
 }
 codeH1 {
-  
+  margin-left: 8%;
+  font-size: 27px;
 }
 codeH2 {
-  
+  margin-left: 10%;
+  font-size: 22px;
 }
 code {
-  
+    white-space: pre-wrap;
+    margin-left: 12.5%;
+    padding-left: 10px;
+    padding-top: 9px;
+    border-left: #ccc solid 5.27px;
+    background-color: #fefefe;
+    border-radius: 5px;
+    width: 30%;
+    transition: all 0.3s; 
+} 
+code:hover {
+  background-color: #fafafa;
+  border-left: #cbcbcb solid 5.27px;
 }
+
