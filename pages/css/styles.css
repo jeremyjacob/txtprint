@@ -55,7 +55,7 @@
 }
 
 body {
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
   font-family: 'Google Sans';
 }
 #wrapper {
@@ -109,6 +109,12 @@ a {
   outline: none;
   display: inline-block;
 }
+
+h2 {
+    font-size: 20px;
+    color: #222;
+}
+
 sInput {
   position: relative;
   z-index: -1;
@@ -126,6 +132,16 @@ sInput.lowered {
   z-index: 0;
   bottom: 0px;
 }
+#keybinds {
+    margin-left: 7px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.tingle-modal-box__content > p {
+    margin-bottom: 25px;
+    color: #2d2d2d;
+}
+
 #print {
   background-color: #6e6e6e;
   color: #ffffff;
@@ -292,14 +308,17 @@ li > a:hover:before {
 
 
 /*UPDATES*/
-#udTitle {
+.udtitle {
   margin-top: 0px;
   font-size: 50px;
-  padding-left: 85px;
+  margin-left: 5%;
+  @media only screen and (max-width: 600px) {margin-left: 1%;};
   padding-top: 75px;
   line-height: 0px;
   color: #3d3d3d;
+  width: 100%;
 }
+
 .cdTitle {
   margin-top: 0px;
   font-size: 50px;
@@ -310,7 +329,8 @@ li > a:hover:before {
 #udSubtext {
   
   font-size: 12px;
-  padding-left: 85px;
+  margin-left: 5%;
+  @media only screen and (max-width: 600px) {margin-left: 1%;};
   padding-top: 0px;
   line-height: 0px;
   color: #3d3d3d;
@@ -407,7 +427,7 @@ tl {
   padding-left: 0px;
   padding-top: 50px;
   line-height: 0px;
-  color: #000;
+  color: #3d3d3d;
   text-align: center
 }
 #abSubtext {
@@ -457,7 +477,9 @@ tl {
   transform-origin: top left;
   color: #6e6e6e;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-} .faqTitle::before {
+}
+
+.faqTitle::before {
   content: "";
   position: absolute;
   right: 100%;
