@@ -45,7 +45,7 @@ var m = new tingle.modal({
         return false; // nothing happens
     }
 });
-m.setContent('<h1>Formatting</h1><br><h2>Bold:</h2><p>*bold*</p><h2>Underline:</h2><p>_underline_</p><h2>Inverse:</h2><p>+inverse+</p><h2>Double Height:</h2><p>$double height&</p><h2>Center Justified:</h2><p>:center justified:</p><h2>Right Justified:</h2><p>&gtright justified&gt</p><h2>Medium:</h2><p>&medium&</p><h2>Large:</h2><p>#large#</p>');
+m.setContent('<h1>Formatting</h1><br><h2>Bold:</h2><p>*bold*</p><h2>Underline:</h2><p>_underline_</p><h2>Inverse:</h2><p>+inverse+</p><h2>Double Height:</h2><p>$double height&</p><h2>Center Justified:</h2><p>:center justified:</p><h2>Right Justified:</h2><p>&gtright justified&gt</p><h2>Medium:</h2><p>&medium&</p><h2>Large:</h2><p>#large#</p><h2>Barcode:</h2><p>q(bc(number,format)</p>');
 
 //// Load cookie w/ anim ////
 var storedBox = localStorage.getItem('typeText');

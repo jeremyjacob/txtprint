@@ -49,7 +49,7 @@
       typing.innerHTML = "printing";
       console.log(textEncoder.encode(box.value));
       //console.log(box.value);
-      port.send(textEncoder.encode(box.value)).catch(error => {
+      port.send(textEncoder.encode(box.value.split(/(?:\r\n|\r|\n)/g).join('/n'))).catch(error => {
         console.log('Send error: ' + error);
         typing.innerHTML = "failed";
         box.classList.remove('printing');
