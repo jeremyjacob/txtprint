@@ -27,10 +27,17 @@
       "body": "In class today I was not as productive as previous weeks, and no major features were added. It was a sort of catch up week for all the bugs and formatting errors the site had. I also researched better ways to accomplish some of the more complicated tasks of the webste on the <a href='https://developer.mozilla.org/en-US/' target='_blank' >MDN docs</a>. It's a great resource for everything HTML, CSS, and JavaScript."
   },
   
-    {
+  {
       "week": "4",
       "date": "December 17th",
       "attach": "",
       "body": "This week I made some more final changes to the website, as well as adding an FAQ and code section that I will fill in later with additional info about the project and instructions for re-creating it. I spent way too much time trying to make an animated vector connection icon, but in the end it made the typeset page feel too clutered and it has been removed. The Github repo now has a 'sketch' folder where a priliminary Arduino sketch is located. Right now using that sketch one can use 16 colors to control an LED strip from the typeset page. I'll bring a board with this sketch flashed to demo in class. At this point in the project I am going to be transitioning to the hardware side of it, as the website is largely comepleted. This means ordering a thermal printer, making a 3D model for the housing, and writing code for the printer."
   }
+  
+  {
+      "week": "5",
+      "date": "January 14th",
+      "attach": "",
+      "body": "In class I added an important addition to the code page. I made preformatted CSS classes to easily write and updates the code section. They include a big title, subtitle, paragraph, and code formatting. This will allow me to update this section easily as I write the c code to run on the arduino."  
+  },
 ]
