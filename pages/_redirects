@@ -1,4 +1,4 @@
 # Redirect default Netlify subdomain to primary domain
 https://txtprint.netlify.com/* https://txtprint.us/:splat 301!
 
-/*              /
+/*    /index.html   200
