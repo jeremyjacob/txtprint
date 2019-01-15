@@ -92,7 +92,7 @@ function version(v) {
 }
 
 //// setPage code for dynamically changing the page content basic on url hashes ////
-setPage(window.location.pathname);
+setPage(window.location.hash);
 function setPage(page) {
   document.cookie = "location="+page;
   switch (page) {
@@ -124,9 +124,6 @@ function setPage(page) {
   }
 }
 
-window.onpopstate = function(e){
-    setPage(window.location.pathname);
-};
 
 
 
