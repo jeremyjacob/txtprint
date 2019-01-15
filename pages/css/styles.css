@@ -318,6 +318,7 @@ li > a:hover:before {
 .udtitle {
   font-family: 'GT Pressura Regular';
   margin-top: 0px;
+  margin-bottom: 50px;
   font-size: 50px;
   margin-left: 5%;
   @media only screen and (max-width: 600px) {margin-left: 1%;};
