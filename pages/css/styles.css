@@ -12,9 +12,9 @@
 }
 @font-face {
     font-family: 'GT Pressura';
-    src: url('GT Pressura.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    src: url('fonts/GT-Pressura.woff2') format('woff2');
 }
 
 @font-face {
