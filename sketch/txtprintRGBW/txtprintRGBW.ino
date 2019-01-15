@@ -8,7 +8,7 @@
  * The URL here provides a hint to the browser about what page the user should
  * navigate to to interact with the device.
  */
-WebUSB WebUSBSerial(1 /* https:// */, "txtprint.us");
+//WebUSB WebUSBSerial(1 /* https:// */, "txtprint.us");
 
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
@@ -19,7 +19,7 @@ WebUSB WebUSBSerial(1 /* https:// */, "txtprint.us");
 #define NUMPIXELS      16
 
 
-#define Serial WebUSBSerial
+//#define Serial WebUSBSerial
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRBW + NEO_KHZ800);
 
