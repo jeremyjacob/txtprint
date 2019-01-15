@@ -12,10 +12,12 @@
 }
 @font-face {
   font-family: 'GT Pressura Regular'
+  font-weight: 600;
   src: url(fonts/GT-Pressura-Regular.woff2) format('woff2');
 }
 @font-face {
   font-family: 'GT Pressura Mono'
+  font-weight: 600;
   src: url(fonts/GT-Pressura-Mono-Regular.woff2) format('woff2');
 }
 @keyframes fadeIn {
