@@ -47,13 +47,6 @@ var m = new tingle.modal({
 });
 m.setContent('<h1>Formatting</h1><br><h2>Bold:</h2><p>*bold*</p><h2>Underline:</h2><p>_underline_</p><h2>Inverse:</h2><p>+inverse+</p><h2>Double Height:</h2><p>$double height&</p><h2>Center Justified:</h2><p>:center justified:</p><h2>Right Justified:</h2><p>&gtright justified&gt</p><h2>Medium:</h2><p>&medium&</p><h2>Large:</h2><p>#large#</p><h2>Barcode:</h2><p>q(bc(number,format)</p>');
 
-//// Load cookie w/ anim ////
-var storedBox = localStorage.getItem('typeText');
-if (localStorage.getItem('typeText') !== null) {
-  box.value = storedBox;
-  OnInput();
-}
-
 
 //// Mobile code ////
 if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -99,25 +92,26 @@ function version(v) {
 }
 
 //// setPage code for dynamically changing the page content basic on url hashes ////
+setPage(window.location.pathname);
 function setPage(page) {
   document.cookie = "location="+page;
   switch (page) {
-    case "updates":
+    case "#updates":
       displayNone();
       updates.style.display = "block";
       document.title = "txtprint // updates";
       break;
-    case "faq":
+    case "#faq":
       displayNone();
       faq.style.display = "block";
       document.title = "txtprint // FAQ";
       break;
-    case "code":
+    case "#code":
       displayNone();
       code.style.display = "block";
       document.title = "txtprint // code";
       break;
-    case "about":
+    case "#about":
       displayNone();
       about.style.display = "block";
       document.title = "txtprint // about";
@@ -129,6 +123,12 @@ function setPage(page) {
       break;
   }
 }
+
+window.onpopstate = function(e){
+    setPage(window.location.pathname);
+};
+
+
 
 function displayNone() {
   typeset.style.display = "none";
