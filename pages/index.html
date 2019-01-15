@@ -4,6 +4,7 @@
         <meta http-equiv="origin-trial" data-feature="WebUSB (For Chrome M57+)" data-expires="2017-06-19" content="Ag83MurQOa5N4SKRCqqtSlbycfe08s5LgUiqEI7J3jTk2NEIpRp7SLPz2i+EBDuXyf+AeRMdD6BI+ +kTSJmGzQEAAABReyJvcmlnaW4iOiJodHRwczovL3dlYnVzYi5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IldlYlVTQjIiLCJleHBpcnkiOjE0OTc4OTM2OTV9">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="assets/T-File.png">
+        <title>txtprint // typeset</title>
         <script src="js/serial.js"></script>
         <script src="js/console.js"></script>
         <script src="js/modal.js"></script>
@@ -14,7 +15,9 @@
         <div id="wrapper">
             <div class="topbar">
                 <div id="navs">
-                    <li><a onclick="setPage('typeset');" class="nav" id="tsnav">typeset</a></li>
+                    <li><img id="horizontal-logo" src="assets/T-Logo_4.png"></li>
+                    <li><span id="navSeperator"></span></li>
+                    <li><a onclick="setPage('typeset');" class="nav" id="tsnav">txtprint</a></li>
                     <li><a onclick="setPage('updates');" class="nav" id="blnav">updates</a></li>
                     <li><a onclick="setPage('faq');" class="nav" style="font-size: 11pt;top:3px;font-weight: bold;" id="fqnav">FAQ</a></li>
                     <li><a onclick="setPage('code');" class="nav" id="cdnav">code</a></li>
@@ -23,7 +26,7 @@
             </div>
             <div style="height: 70px"></div>
             <div id="typeset">
-                <p id="tsTitle">typeset</p>
+                <p id="tsTitle">txtprint</p>
                 <t class="tsSubtext" style="z-index: 2;">Feather: </t>
                 <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>
                 <t class="tsSubtext tsStatus" id="tsConnected" title="Click to disconnect">connected</t>
