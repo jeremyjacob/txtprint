@@ -243,7 +243,7 @@ li > a:hover:before {
   background-color: 000;
 }
 .tsSubtext {
-/*  font-family: 'GT Pressura-Mono';*/
+  font-family: 'GT Pressura-Mono';
   position: relative;
   font-size: 14px;
   padding-left: 5.7%;
