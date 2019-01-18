@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="assets/T-File.png">
         <title>txtprint // typeset</title>
-        <script src="js/serial.js"></script>
         <script src="js/console.js"></script>
         <script src="js/modal.js"></script>
+<!--        <script src="js/typeit.js"></script>-->
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/modal.css">
     </head>
@@ -27,12 +27,11 @@
             <div style="height: 70px"></div>
             <div id="typeset">
                 <p id="tsTitle">txtprint</p>
-                <t class="tsSubtext" style="z-index: 2;">Feather: </t>
-                <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>
-                <t class="tsSubtext tsStatus" id="tsConnected" title="Click to disconnect">connected</t>
-                <br>
-                <div class="input">
-                    <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" rows="8" cols="56" id="text"></textarea>
+              
+              <span id="hero"></span>
+              <div style="height: 70px"></div>
+              <div class="input">
+                    <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" id="text"></textarea>
                     <br>
                     <sInput style="padding-left: 18px;padding-right: 20px;" id="textStatus">ready</sInput>
                     <sInput id="keybinds" onclick="m.open();">formatting</sInput>
@@ -40,7 +39,12 @@
                     <sInput id="charCount">0</sInput>
                     <br>
                     <button id="print">Print</button>
-                </div>
+              </div>
+<!--
+                <t class="tsSubtext" style="z-index: 2;">Feather: </t>
+                <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>
+                <t class="tsSubtext tsStatus" id="tsConnected" title="Click to disconnect">connected</t>
+-->
             </div>
             <div id="updates" style="display:none;">
                 <p class="udtitle" id="udtitle">weekly updates</p>
