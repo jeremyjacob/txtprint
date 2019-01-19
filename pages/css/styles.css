@@ -341,6 +341,7 @@ li > a:hover:before {
 .tsSubtext {
   font-family: 'GT Pressura Mono';
   text-align: center;
+  font-family: 'GT Pressura-Mono';
   position: relative;
   font-size: 14px;
   padding-top: 0px;
@@ -358,6 +359,9 @@ li > a:hover:before {
   width: 70%;
   max-width: 680px;
   background-image: url(/pages/assets/Hero.svg);
+  background-image: url(/assets/Hero.png);
+/*  background-color: #fafafa;*/
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
   border-radius: 10px;
   background-position: center;
   background-repeat: no-repeat;
