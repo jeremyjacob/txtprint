@@ -26,10 +26,9 @@
             </div>
             <div style="height: 70px"></div>
             <div id="typeset">
-                <p id="tsTitle">txtprint</p>
-              
-              <span id="hero"></span>
-              <div style="height: 70px"></div>
+              <div style="height: 10px"></div>
+              <p id="tsTitle">txtprint</p>
+              <p class="tsSubtext">print your paragraphs</p>
               <div class="input">
                     <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" id="text"></textarea>
                     <br>
@@ -125,6 +124,7 @@
                 <codeH1>Big Title</codeH1>
                 <codeH2>Small Title</codeH2>
                 <codeP>Paragraph: Aside from the WebUSB code (serial.js and part of console.js) it is all written by me. I used the MDN Docs and w3schools for references on CSS, HTML, and JS code. There were also numerous fourm threads that aided me with specific problems I ran into when developing txtprint.</codeP>
+<!--
                 <code>function $initHighlight(block, cls) {
   try {
     if (cls.search(/\bno\-highlight\b/) != -1)
@@ -140,17 +140,20 @@
 }
 
 export  $initHighlight;</code>
+-->
               </div>
             </div>
             <div id="about" style="display:none;">
-                <p id="abTitle">txtprint</p>
-                <p id="abSubtext">a project by Jeremy Jacob for Full Steam Ahead</p>
-                <p id="abSubtext">AE Wright Middle School, Robotics 8th Grade</p>
-                <span style="height: 30px"></span>
-                <p id="abSubtext" style="font-style:italic">txtprint is a largely 3d printed portable thermal printer designed for students and classroom use. It uses the Chrome WebUSB library to communicate with an Arduino-style board. I made it because from personal expirience, being able to quickly print conclusions or other text in class is an invaluable asset. I was a group member in a previous FSA project, Classmate. That project also used an Arduino, so I have expirience with the boards and C. As for web development, it is largely new to me. This is the first full website I have built enitely from scratch. Feel free to take a peek at the source code for both the website and Arduino sketch on the <a style="color: #3d3d3d" href="https://github.com/jeremyjacob/txtprint" target="_blank">github</a> page. If you have feedback for the project or website, see the form on the FAQ page, or email me at
-                </p>
-                <p id="abSubtext" style="font-style:italic;padding-bottom:15px;">at <a style="color: #3d3d3d" onClick="javascript:window.open('mailto:jeremjacob5705@student.lvusd.org?Subject=txtprint%20feedback', 'mail');event.preventDefault()" target="_top">jeremjacob5705@student.lvusd.org</a></p>
-                <div class="abHighlight"></div>
+                <span id="hero"></span>
+                  <div id="abContainer">
+                  <p class="abSubtext" style="font-size: 17.5px;">a project by Jeremy Jacob for Full Steam Ahead</p>
+                  <p class="abSubtext">AE Wright Middle School, Robotics 8th Grade</p>
+                  <span style="height: 30px"></span>
+                  <p class="abSubtext" style="font-style:italic">txtprint is a largely 3d printed portable thermal printer designed for students and classroom use. It uses the Chrome WebUSB library to communicate with an Arduino-style board. I made it because from personal expirience, being able to quickly print conclusions or other text in class is an invaluable asset. I was a group member in a previous FSA project, Classmate. That project also used an Arduino, so I have expirience with the boards and C. As for web development, it is largely new to me. This is the first full website I have built enitely from scratch. Feel free to take a peek at the source code for both the website and Arduino sketch on the <a style="color: #3d3d3d" href="https://github.com/jeremyjacob/txtprint" target="_blank">github</a> page. If you have feedback for the project or website, see the form on the FAQ page, or email me at
+                  </p>
+                  <p class="abSubtext" style="font-style:italic;padding-bottom:15px;">at <a style="color: #3d3d3d" onClick="javascript:window.open('mailto:jeremjacob5705@student.lvusd.org?Subject=txtprint%20feedback', 'mail');event.preventDefault()" target="_top">jeremjacob5705@student.lvusd.org</a></p>
+                  <div class="abHighlight"></div>
+                </div>
             </div>
         </div>
         <script src="js/scripts.js"></script>
