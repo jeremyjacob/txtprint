@@ -222,7 +222,7 @@ fetch("data/updates.json")
 
 
 var prompt = 'Write something...';
-if (localStorage.getItem('typeText') != "") {prompt = "Load last paragraph...";}
+if (localStorage.getItem('typeText') != "") {prompt = "Continue writing...";}
 var i = 0;
 var speed = 30;
 
