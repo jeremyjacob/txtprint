@@ -19,7 +19,6 @@ box.setAttribute('style', 'height:' + (box.scrollHeight) + 'px;overflow-y:hidden
 box.addEventListener("input", OnInput, false);
 
 function OnInput() {
-  console.log('input');
   localStorage.setItem('typeText', box.value);
   typing.innerHTML = "typing";
   if (char === true) {
@@ -185,6 +184,7 @@ window.addEventListener('scroll', function () {
 
 
 function textFocus() {
+  if (localStorage.getItem('typeText') != "") {OnInput();}
   document.querySelectorAll('sInput').forEach(function (sInputs) {
     sInputs.classList.add('lowered');
     box.classList.add('lowered');
