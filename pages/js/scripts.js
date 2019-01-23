@@ -18,15 +18,15 @@ var boxCol = 34;
 box.setAttribute('style', 'height:' + (box.scrollHeight) + 'px;overflow-y:hidden;');
 box.addEventListener("input", OnInput, false);
 
-function OnInput() {
-  localStorage.setItem('typeText', box.value);
+function OnInput(init) {
+  if (init !== true) {localStorage.setItem('typeText', box.value);}
   typing.innerHTML = "typing";
   if (char === true) {
     charCount.innerHTML = box.value.length;
     if (box.value.length == 1) {
-      charDisplay.innerHTML = "character"
+      charDisplay.innerHTML = "character";
     } else {
-      charDisplay.innerHTML = "characters"
+      charDisplay.innerHTML = "characters";
     }
   } else {
     charCount.innerHTML = realWordCount();
@@ -184,7 +184,7 @@ window.addEventListener('scroll', function () {
 
 
 function textFocus() {
-  if (localStorage.getItem('typeText') != "") {OnInput();}
+  if (localStorage.getItem('typeText') != "") {OnInput(true);}
   document.querySelectorAll('sInput').forEach(function (sInputs) {
     sInputs.classList.add('lowered');
     box.classList.add('lowered');
