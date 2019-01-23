@@ -18,8 +18,8 @@ var boxCol = 34;
 box.setAttribute('style', 'height:' + (box.scrollHeight) + 'px;overflow-y:hidden;');
 box.addEventListener("input", OnInput, false);
 
-function OnInput(init) {
-  if (init !== true) {localStorage.setItem('typeText', box.value);}
+function OnInput() {
+  localStorage.setItem('typeText', box.value);console.log("init false");
   typing.innerHTML = "typing";
   if (char === true) {
     charCount.innerHTML = box.value.length;
@@ -31,13 +31,7 @@ function OnInput(init) {
   } else {
     charCount.innerHTML = realWordCount();
   }
-
-//  if (box.scrollHeight > 210) {
-//    box.style.height = 'auto';
-//  } else {
-//    box.style.height = "200px";
-//  }
-  var boxrows = box.value.substr(0, box.selectionStart).split(/\r?\n|\r/).length;
+  var boxrows = box.value.substr(0, box.selectionStart).split(/\r?\n|\r/) .length;
   var boxlimit = 9;
   box.rows = Math.max(box.value.substr(0, box.selectionStart).split(/\r?\n|\r/).length,boxlimit);
   if (boxrows > boxlimit) {box.style.height = 'auto';}
@@ -184,7 +178,6 @@ window.addEventListener('scroll', function () {
 
 
 function textFocus() {
-  if (localStorage.getItem('typeText') != "") {OnInput(true);}
   document.querySelectorAll('sInput').forEach(function (sInputs) {
     sInputs.classList.add('lowered');
     box.classList.add('lowered');
@@ -199,6 +192,20 @@ function textFocus() {
   }
   box.value = localStorage.getItem('typeText');
   box.placeholder = 'Write something...';
+  if (char === true) {
+    charCount.innerHTML = box.value.length;
+  if (box.value.length == 1) {
+      charDisplay.innerHTML = "character";
+    } else {
+      charDisplay.innerHTML = "characters";
+    }
+  } else {
+    charCount.innerHTML = realWordCount();
+  }
+  var boxrows = box.value.substr(0, box.selectionStart).split(/\r?\n|\r/) .length;
+  var boxlimit = 9;
+  box.rows = Math.max(box.value.substr(0, box.selectionStart).split(/\r?\n|\r/).length,boxlimit);
+  if (boxrows > boxlimit) {box.style.height = 'auto';}
 }
 
 var updateList = document.getElementById('updateList');
