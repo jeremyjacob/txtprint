@@ -1,93 +1,110 @@
-// Handles WebUSB connection
-
-(function() {
-  var port;
-  var textEncoder = new TextEncoder();
-  document.addEventListener('DOMContentLoaded', event => {
-    var connectButtons = document.querySelectorAll('.tsStatus');
-    var connected = false;
-    var box = document.querySelector('#text');
-    var printButton = document.querySelector('#print');
-    var typing = document.querySelector('#textStatus');
-    function connect() {
-      console.log('Connecting to ' + port.device_.productName + '...');
-      port.connect().then(() => {
-        console.log(port);
-        console.log('Connected.');
-        printButton.classList.add('enabled');
-        document.getElementById('tsDisconnected').style.visibility = 'hidden';
-        document.getElementById('tsConnected').style.visibility = 'visible';
-        connected = true;
-        port.onReceive = data => {
-          var textDecoder = new TextDecoder();
-          if (textDecoder.decode(data).includes('#')) {
-            typing.innerHTML = "printed";
-            box.classList.remove('printing');
-          } else {console.log(textDecoder.decode(data));}
-          
-          
+(() => {
+  var a, b = new TextEncoder;
+  document.addEventListener("DOMContentLoaded", function(k) {
+    function c() {
+      console.log("Connecting to " + a.device_.productName + "...");
+      a.connect().then(function() {
+        console.log(a);
+        console.log("Connected.");
+        e.classList.add("enabled");
+        f.innerHTML = "print some text";
+        g = !0;
+        a.onReceive = function(a) {
+          var l = new TextDecoder;
+          l.decode(a).includes("#") ? (h.innerHTML = "printed", d.classList.remove("printing")) : console.log(l.decode(a));
         };
-        port.onReceiveError = error => {
-            document.getElementById('tsDisconnected').style.visibility = 'visible';
-            document.getElementById('tsConnected').style.visibility = 'hidden';
-            printButton.classList.remove('enabled');
-            connected = false;
-          console.log('Receive error: ' + error);
+        a.onReceiveError = function(a) {
+          e.classList.remove("enabled");
+          f.innerHTML = "click to connect device";
+          g = !1;
+          console.log("Receive error: " + a);
         };
-      }, error => {
-        console.log('Connection error: ' + error);
-        
+      }, function(a) {
+        console.log("Connection error: " + a);
       });
-      
     }
-    //Listen for button press and send textInput.value to arduino
-    printButton.addEventListener('click', function  () {
-    if (connected === true) {
-      box.classList.add('printing');
-      typing.innerHTML = "printing";
-      console.log(textEncoder.encode(box.value));
-      //console.log(box.value);
-      port.send(textEncoder.encode(box.value.split(/(?:\r\n|\r|\n)/g).join('/n'))).catch(error => {
-        console.log('Send error: ' + error);
-        typing.innerHTML = "failed";
-        box.classList.remove('printing');
-      });
-    } else {console.log("Can't print; not connected");}
-  });
-
-    connectButtons.forEach(function(elem) {
-        elem.addEventListener('click', function() {
-          if (port) {
-            port.disconnect();
-            document.getElementById('tsDisconnected').style.visibility = 'visible';
-            document.getElementById('tsConnected').style.visibility = 'hidden';
-            printButton.classList.remove('enabled');
-            connected = false;
-            port = null;
-          } else {
-            serial.requestPort().then(selectedPort => {
-              port = selectedPort;
-              connect();
-            }).catch(error => {
-              
-              console.log('Connection error: ' + error);
-            });
-          }
-          
-        });
+    var f = document.querySelectorAll(".tsSubtext"), g = !1, d = document.querySelector("#text"), e = document.querySelector("#print"), h = document.querySelector("#textStatus");
+    e.addEventListener("click", function() {
+      !0 === g ? (d.classList.add("printing"), h.innerHTML = "printing", console.log(b.encode(d.value)), a.send(b.encode(d.value.split(/(?:\r\n|\r|\n)/g).join("/n")))["catch"](function(a) {
+        console.log("Send error: " + a);
+        h.innerHTML = "failed";
+        d.classList.remove("printing");
+      })) : console.log("Can't print; not connected");
     });
-    serial.getPorts().then(ports => {
-      if (ports.length === 0) {
-        // console.log('No devices found.');
-      } else {
-        port = ports[0];
-        connect();
-      }
+    f.forEach(function(b) {
+      b.addEventListener("click", function() {
+        a ? (a.disconnect(), e.classList.remove("enabled"), f.innerHTML = "click to connect device", g = !1, a = null) : serial.requestPort().then(function(b) {
+          a = b;
+          c();
+        })["catch"](function(a) {
+          console.log("Connection error: " + a);
+        });
+      });
+    });
+    serial.getPorts().then(function(b) {
+      0 !== b.length && (a = b[0], c());
     });
   });
 })();
-
-var serial={};
-(function(){serial.getPorts=function(){return navigator.usb.getDevices().then(function(a){return a.map(function(a){return new serial.Port(a)})})};serial.requestPort=function(){return navigator.usb.requestDevice({filters:[{vendorId:9114,productId:32780}]}).then(function(a){return new serial.Port(a)})};serial.Port=function(a){this.device_=a;this.interfaceNumber_=2;this.endpointIn_=5;this.endpointOut_=4};serial.Port.prototype.connect=function(){var a=this,c=function(){a.device_.transferIn(a.endpointIn_,64).then(function(b){a.onReceive(b.data);
-c()},function(b){a.onReceiveError(b)})};return this.device_.open().then(function(){if(null===a.device_.configuration)return a.device_.selectConfiguration(1)}).then(function(){a.device_.configuration.interfaces.forEach(function(b){b.alternates.forEach(function(c){255==c.interfaceClass&&(a.interfaceNumber_=b.interfaceNumber,c.endpoints.forEach(function(b){"out"==b.direction&&(a.endpointOut_=b.endpointNumber);"in"==b.direction&&(a.endpointIn_=b.endpointNumber)}))})})}).then(function(){return a.device_.claimInterface(a.interfaceNumber_)}).then(function(){return a.device_.selectAlternateInterface(a.interfaceNumber_,
-0)}).then(function(){return a.device_.controlTransferOut({requestType:"class",recipient:"interface",request:34,value:1,index:a.interfaceNumber_})}).then(function(){c()})};serial.Port.prototype.disconnect=function(){var a=this;return this.device_.controlTransferOut({requestType:"class",recipient:"interface",request:34,value:0,index:this.interfaceNumber_}).then(function(){return a.device_.close()})};serial.Port.prototype.send=function(a){return this.device_.transferOut(this.endpointOut_,a)}})();
+var serial = {};
+(function() {
+  serial.getPorts = function() {
+    return navigator.usb.getDevices().then(function(a) {
+      return a.map(function(a) {
+        return new serial.Port(a);
+      });
+    });
+  };
+  serial.requestPort = function() {
+    return navigator.usb.requestDevice({filters:[{vendorId:9114, productId:32780}]}).then(function(a) {
+      return new serial.Port(a);
+    });
+  };
+  serial.Port = function(a) {
+    this.device_ = a;
+    this.interfaceNumber_ = 2;
+    this.endpointIn_ = 5;
+    this.endpointOut_ = 4;
+  };
+  serial.Port.prototype.connect = function() {
+    var a = this, b = function() {
+      a.device_.transferIn(a.endpointIn_, 64).then(function(k) {
+        a.onReceive(k.data);
+        b();
+      }, function(b) {
+        a.onReceiveError(b);
+      });
+    };
+    return this.device_.open().then(function() {
+      if (null === a.device_.configuration) {
+        return a.device_.selectConfiguration(1);
+      }
+    }).then(function() {
+      a.device_.configuration.interfaces.forEach(function(b) {
+        b.alternates.forEach(function(c) {
+          255 == c.interfaceClass && (a.interfaceNumber_ = b.interfaceNumber, c.endpoints.forEach(function(b) {
+            "out" == b.direction && (a.endpointOut_ = b.endpointNumber);
+            "in" == b.direction && (a.endpointIn_ = b.endpointNumber);
+          }));
+        });
+      });
+    }).then(function() {
+      return a.device_.claimInterface(a.interfaceNumber_);
+    }).then(function() {
+      return a.device_.selectAlternateInterface(a.interfaceNumber_, 0);
+    }).then(function() {
+      return a.device_.controlTransferOut({requestType:"class", recipient:"interface", request:34, value:1, index:a.interfaceNumber_});
+    }).then(function() {
+      b();
+    });
+  };
+  serial.Port.prototype.disconnect = function() {
+    var a = this;
+    return this.device_.controlTransferOut({requestType:"class", recipient:"interface", request:34, value:0, index:this.interfaceNumber_}).then(function() {
+      return a.device_.close();
+    });
+  };
+  serial.Port.prototype.send = function(a) {
+    return this.device_.transferOut(this.endpointOut_, a);
+  };
+})();

@@ -19,7 +19,7 @@
 #define NUMPIXELS      16
 
 
-//#define Serial WebUSBSerial
+#define Serial WebUSBSerial
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRBW + NEO_KHZ800);
 

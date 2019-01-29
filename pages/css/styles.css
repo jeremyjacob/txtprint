@@ -96,7 +96,6 @@ body {
 
 #wrapper {
   width: 100vw;
-  height: 100vh;
   transition-delay: 0.05s;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -114,6 +113,7 @@ a !.nav:hover {
 #horizontal-logo {
   height: 40px;
   padding: 7px;
+  cursor: default;
 }
 
 #navSeperator {
@@ -226,6 +226,7 @@ sInput.lowered {
 }
 
 #print {
+  font-family: 'GT Pressura Mono';
   background-color: #6AC761EE;
   color: #ffffff;
   visibility: hidden;
@@ -235,11 +236,10 @@ sInput.lowered {
   user-select: none;
   border-width: 0;
   width: 63px;
+  height: 30px;
   font-weight: bold;
-  font-family: 'GT Presurra Mono';
   font-size: 14px;
   text-align: center;
-  vertical-align: text-bottom;
   cursor: pointer;
   outline: none;
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -346,7 +346,10 @@ li > a:hover:before {
   padding-top: 0px;
   line-height: 0px;
   color: #7e7e7e;
+  cursor: pointer;
   vertical-align: middle;
+} .tsSubtext:hover {
+  text-decoration: underline;
 }
 
 #hero {
@@ -357,7 +360,7 @@ li > a:hover:before {
   height: 25%;
   width: 70%;
   max-width: 680px;
-  background-image: url(assets/Hero.svg);
+  background-image: url(/assets/Hero.svg);
 /*  background-color: #fafafa;*/
   box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
   border-radius: 10px;
