@@ -45,5 +45,11 @@
       "week": "6",
       "date": "January 14th",
       "body": "While I’m waiting for the printer piece to arrive, I have been updating the theme and visual assets on txtprint.us and researching how I will make the housing. Instead of simply 3D printing it as I originally planned, I’m thinking about using a service such as <a href='https://www.sculpteo.com/en/' target='_blank' >Sculpteo</a>. This will allow me to make the casing out of a material such as acrylic which is easier to work with, cheaper, and looks better."
+  },
+    
+  {
+      "week": "7",
+      "date": "January 21st",
+      "body": "This week I got the printer, and wrote some code to allow it to work with the website. It still has some kinks to work out, but it generally works. The code can, as usual, be found on this GitHub. It supports styles, as you can see here:<a href='https://lh3.googleusercontent.com/3F4JDZ2YJTMqw9EcWaodfi9IrE2GN5J-IpM6K_dUhoqdOH8x3eeGmlRQgPsU9BmloNevzjYD5ovmf-cbzopKZTUqnWca9XOcakzXkEXMRRKvi1fDY_IMwrjbQOmO6VY5mca_OZvUz2tGoSci2FDbqUKgCYM74f6wttTsCKTANl9tQeBOYSnl2-B4Eou0JxYL1UcIOt9nn2p_BWMbQTr2ER_8yloXuLPuFMq-limg377991m-896jXAUImC1AXybfTc4OL12MMOrAMUfsGvQHUHHlmeMzACH7fXhuZm_RBfwez2j_ydhIEASaRWv3KjriIzPfiOjEVYBVSXiqG14akCVFqUEWIr_IVSC9l1YwNt8XhY6AFkWatFZgVrMYSQ_FkIzHst2ymhysYfUCPlKRZ4w1sCT3Cn8-6Fg0nkxd_CrOAYvHH_JUxgLU9OFfExC6O-BlGK9LBvOSFytrKQKihFTdWZx8Mb3bMZUtOecoWIzSVfk3HwSxMdDDd6cMQRtFPY2rY1grjzXDW379bg3V1-w0VN9oWv2vaJGb2JWrFanfML7Ap3ccXdJ_Wzs92pP3ABLxVTJwImw00XGPinNETRA58KMXrVkQjZdEvhUZi-JOhWp7wfdA9tOKS2LR0eHmhpFwpGO1e_Ldv6g1m9D4s2ptJQ=w1195-h1592-no' target='_blank' >printer printing paper</a>. The formatting styles can be viewed with the 'formatting' button. The Arduino code goes through a series of if statements to determine whether to apply styles to the print or not."
   }
 ]
