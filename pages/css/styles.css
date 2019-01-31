@@ -44,41 +44,20 @@
 }
 
 @keyframes opacityFadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  0% {opacity: 0;}
+  20% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 @keyframes scaleIn {
-  0% {
-    transform: scale(0, 1);
-  }
-
-  100% {
-    transform: scale(1, 1);
-  }
+  0% {transform: scale(0, 1);}
+  100% {transform: scale(1, 1);}
 }
 
 @keyframes blankFadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  0% {opacity: 0;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 
@@ -109,7 +88,7 @@ a {
   color: #000;
 }
 
-a !.nav:hover {
+a .nav:hover {
   text-decoration: underline;
 }
 
@@ -190,7 +169,9 @@ a !.nav:hover {
   margin: auto;
   margin-top: 50px;
   outline: none;
+  animation: 0.9s blankFadeIn;
 }
+
 
 h2 {
   font-size: 20px;
@@ -330,16 +311,20 @@ li > a:hover:before {
 
 #tsTitle {
   font-family: 'GT Pressura';
-  margin-top: 0px;
+  margin-top: 0;
   font-size: 40px;
-  /*  padding-left: 5%;*/
   padding-top: 75px;
   line-height: 0px;
   color: #3d3d3d;
   text-align: center;
-  background-color: 000;
+  animation: 0.8s tsLoad;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
 }
-
+@keyframes tsLoad {
+  from {font-size: 100px; transform: translateY(0%);}
+  to {font-size: 45px; transform: translateY(0);}
+}
 .tsSubtext {
   font-family: 'GT Pressura Mono';
   text-align: center;
@@ -350,6 +335,7 @@ li > a:hover:before {
   color: #7e7e7e;
   cursor: pointer;
   vertical-align: middle;
+  animation: 0.8s blankFadeIn;
 } .tsSubtext:hover {
   text-decoration: underline;
 }
