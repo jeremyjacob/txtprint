@@ -12,13 +12,13 @@ function OnInput() {
 }
 document.addEventListener("DOMContentLoaded", function(a) {
   document.body.classList.add("loaded");
-  setPage(window.location.hash);
+  setPage(window.location.href.split('/')[3]);
 });
 var m = new tingle.modal({footer:!0, stickyFooter:!1, closeMethods:["overlay", "escape"], closeLabel:"Close", cssClass:["custom-class-1", "custom-class-2"], beforeClose:function() {
   return !0;
 }});
 m.setContent("<h1>Formatting</h1><br><h2>Bold:</h2><p>*bold*</p><h2>Underline:</h2><p>_underline_</p><h2>Inverse:</h2><p>+inverse+</p><h2>Double Height:</h2><p>$double height&</p><h2>Center Justified:</h2><p>:center justified:</p><h2>Right Justified:</h2><p>&gtright justified&gt</p><h2>Medium:</h2><p>&medium&</p><h2>Large:</h2><p>#large#</p><h2>Barcode:</h2><p>q(bc(number,format)</p>");
-"" !== window.location.hash && setPage(window.location.hash.substr(1));
+"";
 var isChromium = window.chrome, winNav = window.navigator, vendorName = winNav.vendor, isOpera = "undefined" !== typeof window.opr, isIEedge = -1 < winNav.userAgent.indexOf("Edge");
 null !== isChromium && "undefined" !== typeof isChromium && "Google Inc." === vendorName && !1 === isOpera && !1 === isIEedge || alert("This page was designed for a modern version Google Chrome. You may try to use it on another browser, but it may not work as intended.");
 function version(a) {
@@ -49,8 +49,11 @@ function setPage(a) {
       break;
     default:
       typeset.style.display = "block", document.title = "txtprint";
+      history.replaceState("", document.title, window.location.pathname);
   }
 }
+
+function getPositionY(element) {var yPosition = 0; while(element) {yPosition += (element.offsetTop - element.scrollTop + element.clientTop); element = element.offsetParent; } return yPosition; }
 
 function countMode() {
   !0 === char ? (char = !1, charCount.innerHTML = realWordCount(), charDisplay.title = "Click for character count") : (char = !0, charCount.innerHTML = box.value.length, charDisplay.innerHTML = 1 == box.value.length ? "character" : "characters", charDisplay.title = "Click for word count");
@@ -68,7 +71,9 @@ function textFocus() {
     a.classList.add("lowered");
     box.classList.add("lowered");
   });
-  box.style.width = "530px";
+  function setWindowHeight() {if (window.innerWidth < 600) {box.style.width = "85vw";} else {box.style.width = "530px";}}
+  setWindowHeight();
+  window.addEventListener("resize", setWindowHeight);
   box.style.height = "200px";
   box.style.minHeight = "200px;";
   box.style.height = 210 < box.scrollHeight ? "auto" : "200px";
@@ -95,10 +100,10 @@ fetch("data/updates.json").then(function(a) {
   alert("Loading updates from JSON failed. Try using https://txtprint.us");
   console.log(a);
 });
-var i = 0;
+let i = 0;
 function typePlaceholder() {
-  var a = "Write something...";
-  "" != localStorage.getItem("typeText") && (a = "Continue writing...");
+  let a = "Write something...";
+  "" !== localStorage.getItem("typeText") && (a = "Continue writing...");
   i < a.length && (box.placeholder += a.charAt(i), i++, setTimeout(typePlaceholder, 30));
 }
 typePlaceholder();
