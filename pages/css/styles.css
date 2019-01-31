@@ -440,8 +440,9 @@ li > a:hover:before {
 #typeset {
   width: 65%;
   margin: auto;
-  height: 100%;
-  background-color: #fff;
+  height: 90vh;
+  padding-top: 70px;
+  background-color: #fdfdfd;
 }
 
 .updateOuter {
