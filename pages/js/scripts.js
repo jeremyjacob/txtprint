@@ -9,6 +9,7 @@ var typeset = document.getElementById("typeset")
   , typing = document.querySelector("#textStatus")
   , topbar = document.querySelector(".topbar")
   , tsTitle = document.querySelector("#tsTitle")
+  , root = document.documentElement
   , scrollNav = window.scrollTop
   , char = !0
   , boxCol = 34;
@@ -38,15 +39,12 @@ function version(a) {
     console.log("%c" + a, "color: black; font-weight: bold;");
 }
 function setPage(a) {
-    typeset.style.display = "none";
-    updates.style.display = "none";
-    faq.style.display = "none";
-    code.style.display = "none";
-    about.style.display = "none";
+    [typeset,updates,faq,code,about].forEach(page => {page.style.display = "none";});
     switch (a) {
     case "#updates":
         updates.style.display = "block";
         document.title = "txtprint // updates";
+        root.style.setProperty('--accPercent', '40%');
         break;
     case "#faq":
         faq.style.display = "block";

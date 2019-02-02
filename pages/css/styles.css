@@ -1,5 +1,6 @@
 :root {
   --accent: #F8DB57;
+  --accPercent: 20%;
 }
 
 @font-face {
@@ -74,7 +75,8 @@ html, body {
   font-family: 'Google Sans';
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #fefefe;
+  background: linear-gradient(120deg, #fbfbfb 0%,#fbfbfb var(--accPercent),#fefefe var(--accPercent));
+  transition: all 1s;
 }
 
 #wrapper {
