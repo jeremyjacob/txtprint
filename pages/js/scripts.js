@@ -100,6 +100,8 @@ function textFocus() {
             box.style.width = "530px";
         }
     }
+    typeset.style = "margin-bottom: 0;";
+    document.querySelector('#aboutLink').style = "visibility: hidden;";
     setWindowHeight();
     window.addEventListener("resize", setWindowHeight);
     box.style.height = "200px";
@@ -146,3 +148,13 @@ function titleAnimIn() {
   titleRecurse < b.length && (tsTitle.innerHTML += b.charAt(titleRecurse), titleRecurse++, setTimeout(titleAnimIn, 30));
 }
 titleAnimIn();
+
+// setTimeout(() => {}, 1000);
+// document.addEventListener("wheel", (WheelEvent) => {
+//   if (WheelEvent.deltaY > 0) {
+//     console.log('scroll');
+//     typeset.style = "margin-bottom: 1000px;"
+//     document.querySelector('#abnav').click()
+//   }
+// });
+
