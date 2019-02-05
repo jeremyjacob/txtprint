@@ -10,7 +10,6 @@ var typeset = document.getElementById("typeset")
   , topbar = document.querySelector(".topbar")
   , tsTitle = document.querySelector("#tsTitle")
   , root = document.documentElement
-  , scrollNav = window.scrollTop
   , char = !0
   , boxCol = 34;
 box.setAttribute("style", "height:" + box.scrollHeight + "px;overflow-y:hidden;");
@@ -84,10 +83,6 @@ function realWordCount() {
     1 == box.value.trim().split(/\s+/).length && 0 < box.value.length ? charDisplay.innerHTML = "word" : charDisplay.innerHTML = "words";
     return 1 > box.value.length ? 0 : box.value.trim().split(/\s+/).length;
 }
-window.addEventListener("scroll", function() {
-    scrollNav = window.scrollY;
-    0 < scrollNav ? topbar.classList.add("active") : topbar.classList.remove("active");
-});
 function textFocus() {
     document.querySelectorAll("sInput").forEach(function(a) {
         a.classList.add("lowered");
@@ -101,7 +96,6 @@ function textFocus() {
         }
     }
     typeset.style = "margin-bottom: 0;";
-    document.querySelector('#aboutLink').style = "visibility: hidden;";
     setWindowHeight();
     window.addEventListener("resize", setWindowHeight);
     box.style.height = "200px";
@@ -149,12 +143,4 @@ function titleAnimIn() {
 }
 titleAnimIn();
 
-// setTimeout(() => {}, 1000);
-// document.addEventListener("wheel", (WheelEvent) => {
-//   if (WheelEvent.deltaY > 0) {
-//     console.log('scroll');
-//     typeset.style = "margin-bottom: 1000px;"
-//     document.querySelector('#abnav').click()
-//   }
-// });
-
+window.addEventListener('scroll', function(){0 < document.body.scrollTop ? topbar.classList.add("active") : topbar.classList.remove("active");}, true)
