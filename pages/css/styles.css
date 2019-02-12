@@ -352,7 +352,8 @@ li > a:hover::after {
   to {font-size: 45px; transform: translateY(0);}
 }
 .tsSubtext {
-  display:inline-block;
+  content: 'test';
+  display: inline-block;
   font-family: 'GT Pressura Mono';
   text-align: center;
   position: relative;
@@ -363,8 +364,10 @@ li > a:hover::after {
   cursor: pointer;
   vertical-align: middle;
   animation: 0.8s blankFadeIn;
-} .tsSubtext:hover {
-  text-decoration: underline;
+} .tsSubtext:hover::after {
+  height: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-7px);
 } .tsSubtext::after {
   z-index: -1;
   content: "";
@@ -372,10 +375,16 @@ li > a:hover::after {
   position: relative;
   margin: auto;
   height: 5px;
+  margin-bottom: 7px;
   width: inherit;
   bottom: -3px;
   background-color: var(--accent);
-}
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+} .tsSubtext.dialog::after {
+  height: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-7px);
+} .tsSubtext.dialog {cursor: default;}
 
 #hero {
   display: block;
@@ -586,15 +595,6 @@ tl:hover {
   transition: all 0.30s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-#abContainer {
-/*  display: inline-block;*/
-  max-width: 1200px;
-  margin: auto;
-  animation: fadeIn ease-in 1;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-  animation-duration: 0.6s;
-}
 
 /*FAQ*/
 .faqCard {
@@ -602,6 +602,7 @@ tl:hover {
   background: #fefefe;
   overflow: auto;
   padding-bottom: 10px;
+  /*border: 1px solid #eee;*/
   border-radius: 3px;
   margin-bottom: 20px;
   padding-right: 0px;
@@ -725,6 +726,59 @@ code:hover {
   background-color: #fafafa;
   border-left: #cbcbcb solid 5.27px;
 }
+#abContainer {
+  display: block;
+  width: 70%;
+  height: 90vh;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+  margin: auto;
+}
+#centerContainer {
+  text-align: center;
+}
+#abHeader {
+  display: inline-block;
+  /*margin-left: 15%;*/
+  height: 90px;
+  margin-top: 20%;
+  font-size: 60px;
+  font-family: 'GT Pressura';
+  color: #3d3d3d;
+} #abHeader::after {
+  z-index: -1;
+  content: "";
+  display: block;
+  position: relative;
+  margin: auto;
+  height: 20px;
+  bottom: 30px;
+  /*margin-bottom: 7px;*/
+  width: inherit;
+  /*bottom: -3px;*/
+  background-color: var(--accent);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#byLine {font-family: 'GT Pressura Mono';}
+
+#abDesc {
+  visibility: hidden;
+  margin: auto;
+  margin-top: 90px;
+  /*margin-left: 5%;*/
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 300px;
+  color: #444;
+  /*border-left: 1.5px solid #555;*/
+}
+
+
+
+
+
 
 @media only screen and (max-width: 600px) {
   #typeset {

@@ -9,6 +9,8 @@ var typeset = document.getElementById("typeset")
   , typing = document.querySelector("#textStatus")
   , topbar = document.querySelector(".topbar")
   , tsTitle = document.querySelector("#tsTitle")
+  , tsSubtext = document.querySelector(".tsSubtext")
+  , updateList = document.getElementById("updateList")
   , root = document.documentElement
   , char = !0
   , boxCol = 34;
@@ -43,7 +45,6 @@ function setPage(a) {
     case "#updates":
         updates.style.display = "block";
         document.title = "txtprint // updates";
-        root.style.setProperty('--accPercent', '40%');
         break;
     case "#faq":
         faq.style.display = "block";
@@ -60,7 +61,7 @@ function setPage(a) {
     default:
         typeset.style.display = "block",
         document.title = "txtprint";
-        history.replaceState("", document.title, window.location.pathname);
+        if (window.location.href.split('/')[3] == '#') history.replaceState("", document.title, window.location.pathname);
     }
 }
 function getPositionY(element) {
@@ -108,7 +109,7 @@ function textFocus() {
     box.rows = Math.max(box.value.substr(0, box.selectionStart).split(/\r?\n|\r/).length, 9);
     9 < a && (box.style.height = "auto");
 }
-const updateList = document.getElementById("updateList");
+
 fetch("data/updates.json").then(function(a) {
     return a.json();
 }).then(function(a) {
@@ -125,6 +126,7 @@ fetch("data/updates.json").then(function(a) {
     alert("Loading updates from JSON failed. Try using https://txtprint.us");
     console.log(a);
 });
+
 var typeRecurse = 0;
 function typePlaceholder() {
   if (localStorage.getItem("typeText")) {var a = "Continue writing..."} else {var a = "Write something...";}
@@ -136,14 +138,22 @@ setTimeout(function() {
 
 
 var titleRecurse = 0;
-tsTitle.innerHTML = "txt"
+tsTitle.innerHTML = "txt";
 function titleAnimIn() {
   var b = 'print';
   titleRecurse < b.length && (tsTitle.innerHTML += b.charAt(titleRecurse), titleRecurse++, setTimeout(titleAnimIn, 30));
-}
+};
 titleAnimIn();
 
 window.addEventListener('scroll', function(){0 < document.body.scrollTop ? topbar.classList.add("active") : topbar.classList.remove("active");}, true)
 document.addEventListener('keydown', (e) => {
-  if (e.key.match(/^\w{1}$/i) && !e.ctrlKey) {textFocus();box.focus()}
+  if (e.key.match(/^\w{1}$/i) && !e.ctrlKey && location.hash == '') {textFocus();box.focus()}
 });
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}

@@ -3,6 +3,7 @@
   document.addEventListener("DOMContentLoaded", function(k) {
     function c() {
       console.log("Connecting to " + a.device_.productName + "...");
+      tsSubtext.classList.remove('dialog');
       a.connect().then(function() {
         console.log(a);
         console.log("Connected.");
@@ -21,6 +22,7 @@
         };
       }, function(a) {
         console.log("Connection error: " + a);
+        tsSubtext.classList.remove('dialog');
       });
     }
     var f = document.querySelectorAll(".tsSubtext"), g = !1, d = document.querySelector("#text"), e = document.querySelector("#print"), h = document.querySelector("#textStatus");
@@ -33,11 +35,13 @@
     });
     f.forEach(function(b) {
       b.addEventListener("click", function() {
+        tsSubtext.classList.add('dialog');
         a ? (a.disconnect(), e.classList.remove("enabled"), f.innerHTML = "click to connect device", g = !1, a = null) : serial.requestPort().then(function(b) {
           a = b;
           c();
         })["catch"](function(a) {
           console.log("Connection error: " + a);
+          tsSubtext.classList.remove('dialog');
         });
       });
     });
