@@ -144,3 +144,6 @@ function titleAnimIn() {
 titleAnimIn();
 
 window.addEventListener('scroll', function(){0 < document.body.scrollTop ? topbar.classList.add("active") : topbar.classList.remove("active");}, true)
+document.addEventListener('keydown', (e) => {
+  if (e.key.match(/^\w{1}$/i) && !e.ctrlKey) {textFocus();box.focus()}
+});
