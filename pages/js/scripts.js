@@ -37,7 +37,7 @@ var isChromium = window.chrome
   , isIEedge = -1 < winNav.userAgent.indexOf("Edge");
 null !== isChromium && "undefined" !== typeof isChromium && "Google Inc." === vendorName && !1 === isOpera && !1 === isIEedge || alert("This page was designed for a modern version Google Chrome. You may try to use it on another browser, but it may not work as intended.");
 function version(a) {
-    console.log("%c" + a, "color: black; font-weight: bold;");
+    console.log('Version ' + '%c' + a + '%c release', "color: blue;", "color: black;");
 }
 function setPage(a) {
     [typeset,updates,faq,code,about].forEach(page => {page.style.display = "none";});
