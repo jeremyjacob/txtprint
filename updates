@@ -43,5 +43,18 @@ body: "This week I got the printer, and wrote some code to allow it to work with
 week: 8,
 date: "January 29st",
 body: "There were numerous small changes to the website as usual, including now when you type anything it automatically opens the text box. I also layed out the plan and started building a more interactive about page, as I feel that needs to be a strong point of txtprint. I also had the idea to build the first version in a book, as I think it'd be nice symbolism and an eye catching design."
-}
+},
+{
+week: 9,
+date: "Febuary 4th",
+body: "Today I worked on the new about page, but didn't get very far. The plan is to have an onscroll event that shows a short paragraph reguarding what the project is about in more detail than faq. It will include info like my name, the school and what the project is for."
+},
+week: 10,
+date: "Febuary 11th",
+body: "In addition to updating the Arduino code to remove minor errors on a newline (you'd have to have two newlines to print one) I implemented javascript that detects scroll, even though there is no scrollable element. This will allow the code to add a css class that plays the animation showing the paragraph that I have begun writing this week. I have been focusing more on the website as I belive this is a crcuial component to the project and now that I have the Arduino code largely comepleted, it will be trivial to comeplete when I need to. Next week I want to work on the housing for the printer."
+},
+week: 11,
+date: "Febuary 19th",
+body: "As planned, this week I worked on the housing by cutting out the pages where I will insert the components in the book. I explained earlier why I chose that medium, but the idea of the project is that it's fully open so if someone wanted to remake the project in a wooden box, they could. Sometime next week I want to finishing glueing the book and start designing the 3d printed insert."
+},
 ]
