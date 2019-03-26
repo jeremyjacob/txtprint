@@ -1,4 +1,4 @@
-(() => {
+( () => {
   var a, b = new TextEncoder;
   document.addEventListener("DOMContentLoaded", function(k) {
     function c() {

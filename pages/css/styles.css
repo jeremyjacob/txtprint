@@ -736,6 +736,13 @@ code:hover {
 }
 #centerContainer {
   text-align: center;
+  transform: scale(1);
+  opacity: 1;
+  transition: 0.7s cubic-bezier(0.65, 0.05, 0.36, 1);;
+}
+#centerContainer.out {
+  transform: scale(1.5) translateY(-10px);
+  opacity: 0;
 }
 #abHeader {
   display: inline-block;
@@ -759,12 +766,23 @@ code:hover {
   background-color: var(--accent);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+#bylineCont {
+  overflow: hidden;
+}
 
-#byLine {font-family: 'GT Pressura Mono';}
+#byLine {
+  font-family: 'GT Pressura Mono';
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(-200px;);
+}
+#byLine.out {
+  
+}
 
-#abDesc {
-  visibility: hidden;
+.abDesc {
+  font-family: 'GT Pressura Mono';
   margin: auto;
+  width: 500px;
   margin-top: 90px;
   /*margin-left: 5%;*/
   padding-left: 10px;
@@ -774,10 +792,17 @@ code:hover {
   color: #444;
   /*border-left: 1.5px solid #555;*/
 }
-
-
-
-
+#textleft {
+  position: absolute;
+  width: 20%;
+  left: 25%;
+}
+#textright {
+  position: absolute;
+  width: 20%;
+  text-align: right;
+  right: 25%;
+}
 
 
 @media only screen and (max-width: 600px) {

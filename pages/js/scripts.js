@@ -14,6 +14,7 @@ var typeset = document.getElementById("typeset")
   , root = document.documentElement
   , char = !0
   , boxCol = 34;
+
 box.setAttribute("style", "height:" + box.scrollHeight + "px;overflow-y:hidden;");
 box.addEventListener("input", OnInput, !1);
 function OnInput() {
@@ -36,12 +37,12 @@ var isChromium = window.chrome
   , isOpera = "undefined" !== typeof window.opr
   , isIEedge = -1 < winNav.userAgent.indexOf("Edge");
 null !== isChromium && "undefined" !== typeof isChromium && "Google Inc." === vendorName && !1 === isOpera && !1 === isIEedge || alert("This page was designed for a modern version Google Chrome. You may try to use it on another browser, but it may not work as intended.");
-function version(a) {
-    console.log('Version ' + '%c' + a + '%c release', "color: blue;", "color: black;");
+function version(ver) {
+    console.log(`Version %c${ver}%c release`, "color: blue;", "color: black;");
 }
-function setPage(a) {
+function setPage(page) {
     [typeset,updates,faq,code,about].forEach(page => {page.style.display = "none";});
-    switch (a) {
+    switch (page) {
     case "#updates":
         updates.style.display = "block";
         document.title = "txtprint // updates";
@@ -64,11 +65,11 @@ function setPage(a) {
         if (window.location.href.split('/')[3] == '#') history.replaceState("", document.title, window.location.pathname);
     }
 }
-function getPositionY(element) {
+function getPositionY(el) {
     var yPosition = 0;
-    while (element) {
-        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
-        element = element.offsetParent;
+    while (el) {
+        yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
+        el = el.offsetParent;
     }
     return yPosition;
 }
@@ -110,21 +111,20 @@ function textFocus() {
     9 < a && (box.style.height = "auto");
 }
 
-fetch("data/updates.json").then(function(a) {
-    return a.json();
-}).then(function(a) {
-    for (var d = a.length - 1; 0 <= d; d--) {
-        var c = a[d]
-          , b = document.getElementById("update-template").content.cloneNode(!0);
-        b.querySelector(".updateOuter").id = "week" + c.week;
-        b.querySelector(".updateInner").innerText = c.date;
-        b.querySelector(".updateW").innerText = "week " + c.week;
-        b.querySelector(".updateP").innerHTML = c.body;
-        updateList.appendChild(b);
+fetch("data/updates.json").then(function(res) {
+    return res.json();
+}).then((res) => {
+    for (var i = res.length - 1; 0 <= i; i--) {
+        var content = res[i], update = document.getElementById("update-template").content.cloneNode(!0);
+        update.querySelector(".updateOuter").id = "week" + content.week;
+        update.querySelector(".updateInner").innerText = content.date;
+        update.querySelector(".updateW").innerText = "week " + content.week;
+        update.querySelector(".updateP").innerHTML = content.body;
+        updateList.appendChild(update);
     }
-})["catch"](function(a) {
+})["catch"]((error) => {
     alert("Loading updates from JSON failed. Try using https://txtprint.us");
-    console.log(a);
+    console.log(error);
 });
 
 var typeRecurse = 0;
@@ -150,10 +150,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key.match(/^\w{1}$/i) && !e.ctrlKey && location.hash == '') {textFocus();box.focus()}
 });
 
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false );
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+document.addEventListener("wheel", function (el) {
+    (el.deltaY > 0.01 || window.location.hash == '#about') ? true : false
+});
