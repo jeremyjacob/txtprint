@@ -1,0 +1,833 @@
+:root {
+  --accent: #F8DB57;
+  --accPercent: 20%;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-weight: 700;
+  src: url(fonts/GoogleSans.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Google Sans Bold';
+  font-weight: 700;
+  src: url(fonts/GoogleSans-Bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'GT Pressura';
+  font-weight: normal;
+  font-style: normal;
+  src: url('fonts/GT-Pressura.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'GT Pressura Mono';
+  font-weight: normal;
+  font-style: normal;
+  src: url(fonts/GT-Pressura-Mono-Regular.woff2) format('woff2');
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    margin-top: 6px;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    margin-top: 0px;
+  }
+}
+
+@keyframes opacityFadeIn {
+  0% {opacity: 0;}
+  20% {opacity: 0;}
+  100% {opacity: 0.7;}
+}
+
+@keyframes scaleIn {
+  0% {transform: scale(0, 1);}
+  100% {transform: scale(1, 1);}
+}
+
+@keyframes blankFadeIn {
+  0% {opacity: 0;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+
+.space {
+  height: 50px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+html, body {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  font-family: 'Google Sans';
+/*  max-width: 100vw;*/
+  overflow-x: hidden;
+/*  background-color: #f6f6f6;*/
+}
+body {
+  background-color: white;
+}
+
+#wrapper {
+  width: 100vw;
+  transition-delay: 0.05s;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+}
+
+a .nav:hover {
+  text-decoration: underline;
+}
+
+#horizontal-logo {
+  height: 40px;
+  padding: 7px;
+  cursor: default;
+}
+
+#navSeperator {
+  width: 1.5px;
+  height: 20px;
+  border-radius: 5px;
+  display: block;
+  margin: 10px;
+  margin-top: 17px;
+  background-color: #ccc;
+}
+
+/*TYPESET*/
+#text {
+  height: 0;
+  width: 400px;
+  font-size: 14px;
+  font-family: 'GT Pressura';
+  letter-spacing: 1px;
+  padding: 16px 18px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #fefefe;
+  color: #2d2d2d;
+  resize: none;
+  border-radius: 17px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  overflow: hidden;
+  user-select: none;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-duration: 0.6s;
+  transition: all .3s cubic-bezier(0.23, 1, 0.32, 1), width .3s cubic-bezier(0.23, 1, 0.32, 1), height .3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#text.printing {
+  animation-name: printing;
+  animation-duration: 0.75s;
+}
+
+@keyframes printing {
+  0% {
+    color: #2d2d2d;
+  }
+
+  50% {
+    color: #6AC761;
+  }
+
+  100% {
+    color: #2d2d2d;
+  }
+}
+
+#text:focus {
+  background-color: #f6f6f6;
+}
+
+#text.lowered {
+  border-radius: 12px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
+  background-color: #f9f9f9;
+}
+
+.input {
+  z-index: -1;
+  display: table;
+  margin: auto;
+  margin-top: 50px;
+  outline: none;
+  animation: 0.9s blankFadeIn;
+}
+
+
+h2 {
+  font-size: 20px;
+  color: #222;
+}
+
+sInput {
+  position: relative;
+  z-index: -1;
+  color: #2d2d2d;
+  float: right;
+  padding-left: 10px;
+  bottom: 20px;
+  font-size: 13px;
+  transition: all cubic-bezier(0.18, 0.89, 0.48, 1.16) 0.3s;
+  animation: blankFadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.349s;
+}
+
+#aboutLink {
+  display: inline-block;
+  font-family: 'GT Pressura Mono';
+  margin-top: 47vh;
+  animation: opacityFadeIn 3s;
+  animation-fill-mode: forwards;
+}
+#aboutLink::after {
+    content: '';
+    display: block;
+    border-right: 2px solid #444;
+    border-bottom: 2px solid #444;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    transform: rotate(45deg);
+    margin-top: 4px
+}
+
+sInput.lowered {
+  z-index: 0;
+  bottom: 0px;
+}
+
+#keybinds {
+  margin-left: 7px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tingle-modal-box__content > p {
+  margin-bottom: 25px;
+  color: #2d2d2d;
+}
+
+#print {
+  font-family: 'GT Pressura Mono';
+  background-color: #6AC761EE;
+  color: #ffffff;
+  visibility: hidden;
+  border-radius: 13px;
+  padding: 8px 12px;
+  margin-top: 3px;
+  user-select: none;
+  border-width: 0;
+  width: 63px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+#print.enabled {
+  visibility: visible;
+}
+
+#print:hover {
+  background-color: #6AC761DD;
+}
+
+/*NAVIGATION BAR*/
+body > .topbar {
+  position: fixed;
+}
+
+.topbar {
+  user-select: none;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background-color: #f6f6f6;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  transition: box-shadow 0.4s;
+}
+
+.topbar.active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#navs {
+  padding-left: 22px;
+}
+
+li {
+  position: relative;
+  float: left;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+li a {
+  position: relative;
+  display: block;
+  color: #000;
+  padding: 18px 16px;
+  text-decoration: none;
+}
+
+li > a:hover {
+  color: #000;
+}
+
+li > a::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  bottom: 18.7px;
+  left: 0;
+  background-color: var(--accent);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.18s ease-in-out 0.025s;
+}
+
+li > a:hover::after {
+  visibility: visible;
+  -webkit-transform: scaleX(0.75);
+  transform: scaleX(0.75);
+}
+
+#content {
+  margin: 0px;
+}
+
+#tsTitle {
+  font-family: 'GT Pressura';
+  margin-top: 0;
+  font-size: 40px;
+  padding-top: 75px;
+  line-height: 0px;
+  color: #3d3d3d;
+  text-align: center;
+  animation: 0.8s tsLoad;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+} #tsTitle::after {
+  content: '';
+  height: 50px;
+  width: 50px
+}
+@keyframes tsLoad {
+  from {font-size: 65px; transform: translateY(0%);}
+  to {font-size: 45px; transform: translateY(0);}
+}
+.tsSubtext {
+  content: 'test';
+  display: inline-block;
+  font-family: 'GT Pressura Mono';
+  text-align: center;
+  position: relative;
+  font-size: 14px;
+  padding-top: 0px;
+  line-height: 0px;
+  color: #555;
+  cursor: pointer;
+  vertical-align: middle;
+  animation: 0.8s blankFadeIn;
+} .tsSubtext:hover::after {
+  height: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-7px);
+} .tsSubtext::after {
+  z-index: -1;
+  content: "";
+  display: block;
+  position: relative;
+  margin: auto;
+  height: 5px;
+  margin-bottom: 7px;
+  width: inherit;
+  bottom: -3px;
+  background-color: var(--accent);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+} .tsSubtext.dialog::after {
+  height: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-7px);
+} .tsSubtext.dialog {cursor: default;}
+
+#hero {
+  display: block;
+  margin: auto;
+  vertical-align: middle;
+  margin-top: 13vh;
+  height: 80vh;
+  width: 90vw;
+  /*max-width: 680px;*/
+  background-color: #fafafa;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#version {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0px;
+  right: 15px;
+  float: right;
+
+  font-size: 11px;
+  color: #4e4e4e;
+  vertical-align: middle;
+}
+
+#tsDisconnected {
+  position: relative;
+  display: block;
+  text-align: left;
+  margin-top: 0.9px;
+  margin-bottom: 18px;
+  padding-left: 0px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+
+
+/*UPDATES*/
+.udtitle {
+  font-family: 'GT Pressura';
+  margin-top: 0px;
+  margin-bottom: 50px;
+  font-size: 50px;
+  margin-left: 8.5%;
+  padding-top: 75px;
+  line-height: 0px;
+  color: #3d3d3d;
+  width: 100%;
+}
+
+.cdTitle {
+  font-family: 'GT Pressura';
+  margin-top: 0px;
+  font-size: 50px;
+  padding-top: 75px;
+  line-height: 0px;
+  color: #3d3d3d;
+}
+
+#udSubtext {
+  font-family: 'GT Pressura Mono';
+  font-size: 12px;
+  margin-left: 8.5%;
+  padding-top: 0px;
+  line-height: 0px;
+  color: #3d3d3d;
+
+}
+
+#typeset {
+  width: 65%;
+  margin: auto;
+  height: 90vh;
+  padding-top: 70px;
+  text-align: center;
+  transition: all 1s;
+}
+#typeset.swipeUp {
+  margin-bottom: 200%;
+}
+
+.updateOuter {
+  position: relative;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  border-radius: 5px;
+  padding-bottom: 0;
+  border: solid #eaeaeaaa 0.1rem;
+  height: auto;
+  width: 80%;
+  margin: auto;
+  padding-bottom: 13px;
+  margin-bottom: 35px;
+  margin-top: 0px;
+  padding-left: 35px;
+  padding-top: 10px;
+  background-color: #fcfcfc;
+  list-style-type: none;
+  overflow: auto;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12), 0 0px 0px rgba(0, 0, 0, 0.24);
+  transition: all 0.30s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-duration: 0.6s;
+}
+
+.updateOuter .updateInnerBG {
+  display: block;
+  position: relative;
+  height: 5px;
+  width: 100%;
+  background-color: var(--accent);
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.updateMid {
+  display: flex;
+}
+
+.updateInner {
+  flex: 0 0 auto;
+  color: #535353;
+  cursor: default;
+  height: 0px;
+  margin-bottom: 55px;
+}
+
+.updateInner::after {
+  content: '';
+  position: relative;
+  bottom: 20px;
+  display: inline-block;
+  height: 5px;
+  width: 25%;
+  background: var(--accent);
+  animation: widthExtend 400ms cubic-bezier(0.19, 1, 0.22, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes widthExtend {
+  from {
+    width: 15%
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.updateP {width: 95%;}
+
+.updateW {
+  margin-left:auto; margin-right:0;
+  text-align: right;
+  padding-top: 12.5px;
+  padding-left: 15px;
+  padding-right: 45px;
+  font-size: 17px;
+  color: #333;
+}
+
+.scaleback {
+  transform: scale(1.0, 1.0);
+}
+
+tl {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+tl:hover {
+  text-decoration: none;
+}
+
+/*ABOUT*/
+
+#about {
+  width: 100%;
+  height: 100%;
+}
+
+#abTitle {
+  font-family: 'GT Pressura';
+  margin-top: 0px;
+  font-size: 50px;
+  padding-left: 0px;
+  padding-top: 50px;
+  line-height: 0px;
+  color: #3d3d3d;
+  text-align: center
+}
+
+.abSubtext {
+  margin: auto;
+  font-size: 14.5px;
+  width: 50%;
+  padding-left: 0px;
+  padding-top: 0px;
+  line-height: 28px;
+  color: #3d3d3d;
+  text-align: center;
+  transition: all 0.30s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+/*FAQ*/
+.faqCard {
+  margin-left: 5%;
+  background: #fefefe;
+  overflow: auto;
+  padding-bottom: 10px;
+  /*border: 1px solid #eee;*/
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding-right: 0px;
+  display: inline-block;
+  width: 38%;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12), 0 0px 0px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-duration: 0.6s;
+}
+
+
+.faqTitle {
+  cursor: default;
+  font-size: 24px;
+  transform: scale(1);
+  margin-left: 5%;
+  padding-left: 11px;
+  transform-origin: top left;
+  color: #6e6e6e;
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.faqTitle::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  border-left: 5px solid var(--accent);
+  height: 28px;
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+
+.faqText {
+  margin-left: 5%;
+  margin-right: 10px;
+  color: #7e7e7e;
+  font-size: 13px;
+  transform: translateY(0px);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+#feedback {
+  height: 30px;
+  width: 50%;
+  font-family: 'Google Sans';
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  padding-left: 10px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1.8px solid #bbb;
+  border-radius: 7px;
+  outline: none;
+  transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#feedback:focus {
+  border: 1.8px solid #ccc;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+}
+
+#feedbacktext {
+  font-size: 10.5px;
+  color: #5a5a5a;
+  letter-spacing: 0.7px;
+  font-family: 'Google Sans Bold'
+}
+
+#feedbackContainer {
+  padding: 50px;
+  padding-left: 6%;
+  padding-top: 5px;
+  border-radius: 10px;
+  line-height: 30px;
+}
+
+/*CODE*/
+#codeBody > * {
+  display: table;
+  padding-bottom: 20px;
+  color: #3d3d3d;
+}
+
+#codeBody > :not(code) {
+  width: 70%;
+}
+
+codeP {
+  margin-left: 12%;
+  color: #2d2d2d;
+}
+
+codeH1 {
+  margin-left: 8%;
+  font-size: 27px;
+}
+
+codeH2 {
+  margin-left: 10%;
+  font-size: 22px;
+}
+
+code {
+  white-space: pre-wrap;
+  margin-left: 12.5%;
+  padding-left: 10px;
+  padding-top: 9px;
+  border-left: #ccc solid 5.27px;
+  background-color: #fefefe;
+  border-radius: 5px;
+  width: 30%;
+  transition: all 0.3s;
+}
+
+code:hover {
+  background-color: #fafafa;
+  border-left: #cbcbcb solid 5.27px;
+}
+#abContainer {
+  display: block;
+  width: 70%;
+  height: 90vh;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+  margin: auto;
+}
+#centerContainer {
+  text-align: center;
+  transform: scale(1);
+  opacity: 1;
+  transition: 0.7s cubic-bezier(0.65, 0.05, 0.36, 1);;
+}
+#centerContainer.out {
+  transform: scale(1.5) translateY(-10px);
+  opacity: 0;
+}
+#abHeader {
+  display: inline-block;
+  /*margin-left: 15%;*/
+  height: 90px;
+  margin-top: 20%;
+  font-size: 60px;
+  font-family: 'GT Pressura';
+  color: #3d3d3d;
+} #abHeader::after {
+  z-index: -1;
+  content: "";
+  display: block;
+  position: relative;
+  margin: auto;
+  height: 20px;
+  bottom: 30px;
+  /*margin-bottom: 7px;*/
+  width: inherit;
+  /*bottom: -3px;*/
+  background-color: var(--accent);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+#bylineCont {
+  overflow: hidden;
+}
+
+#byLine {
+  font-family: 'GT Pressura Mono';
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(-200px;);
+}
+#byLine.out {
+  
+}
+
+.abDesc {
+  font-family: 'GT Pressura Mono';
+  margin: auto;
+  width: 500px;
+  margin-top: 90px;
+  /*margin-left: 5%;*/
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 300px;
+  color: #444;
+  /*border-left: 1.5px solid #555;*/
+}
+#textleft {
+  position: absolute;
+  width: 20%;
+  left: 25%;
+}
+#textright {
+  position: absolute;
+  width: 20%;
+  text-align: right;
+  right: 25%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  #typeset {
+    width: 90%;
+  }
+  #text {
+    width: 85vw;
+  }
+  
+}
+@media only screen and (min-width: 600px) {
+  .faqCard:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  .faqCard:hover .faqTitle {
+    color: #5a5a5a;
+    transform: scale(0.95);
+  }
+  
+  .faqCard:hover .faqText {
+    transform: translateY(-5px);
+  }
+  .faqCard:hover .faqCard::before {
+    left: 19%;
+}
+}

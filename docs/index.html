@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta http-equiv="origin-trial" data-feature="WebUSB (For Chrome M57+)" data-expires="2017-06-19" content="Ag83MurQOa5N4SKRCqqtSlbycfe08s5LgUiqEI7J3jTk2NEIpRp7SLPz2i+EBDuXyf+AeRMdD6BI+ +kTSJmGzQEAAABReyJvcmlnaW4iOiJodHRwczovL3dlYnVzYi5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IldlYlVTQjIiLCJleHBpcnkiOjE0OTc4OTM2OTV9">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/T-File.png">
+  <title>txtprint // typeset</title>
+  <script src="js/console.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body onload="version('0.9')" onhashchange="setPage(location.hash)" id="content" style="height: 100vh;width: 100vw">
+  <div id="wrapper">
+    <div class="topbar">
+      <div id="navs">
+        <li><img id="horizontal-logo" src="assets/T-Logo_4.png"></li>
+        <li><span id="navSeperator"></span></li>
+        <li><a href="#" class="nav" id="tsnav">txtprint</a></li>
+        <li><a href="#updates" class="nav" id="blnav">updates</a></li>
+        <li><a href="#faq" class="nav" style="font-size: 11pt;top:1.7px;font-weight: bold;" id="fqnav">FAQ</a></li>
+        <!--<li><a href="#code" class="nav" id="cdnav">code</a></li>-->
+        <li><a href="#about" class="nav" id="abnav">about</a></li>
+      </div>
+    </div>
+    <div id="typeset">
+      <div style="height: 10px"></div>
+      <p id="tsTitle">txtprint</p>
+      <p class="tsSubtext">click to connect device</p>
+      <span></span>
+      <div class="input">
+<!--        <t class="tsSubtext tsStatus" id="tsDisconnected">disconnected</t>-->
+        <textarea name="message" onfocus="textFocus();" onblur="typing.innerHTML = 'ready';" id="text"></textarea>
+        <br>
+        <sInput style="padding-left: 18px;padding-right: 20px;" id="textStatus">ready</sInput>
+        <sInput id="keybinds" onclick="">formatting</sInput>
+        <sInput style="text-decoration: underline;cursor:pointer;user-select: none;" title="Click for word count" id="charDisplay" onclick="countMode()">characters</sInput>
+        <sInput id="charCount">0</sInput>
+        <br>
+        <button id="print">Print</button>
+        
+      </div>
+      <!--<span id="aboutLink">about this project</span>-->
+      <!--                <t class="tsSubtext" style="z-index: 2;">Feather: </t>-->
+    </div>
+    <div id="updates" style="display:none;margin-top: 70px">
+      <p class="udtitle" id="udtitle">weekly updates</p>
+      <p id="udSubtext" style="font-size: 18px;">txtprint // jeremy jacob</p>
+      <div style="height: 60px"></div>
+      <div id="updateList">
+        <template id="update-template">
+          <div class="sp"></div>
+          <div class="updateOuter">
+            <div class="updateMid">
+              <h1 class="updateInner"></h1>
+              <p class=updateW></p>
+            </div>
+            <p class=updateP></p>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div id="faq" style="display:none;margin-top: 70px">
+      <p class="udtitle">FAQ</p>
+      <p id="udSubtext" style="font-size: 18px">nobody asked but here you go</p>
+      <div style="padding-left: 4%;">
+        <div style="height: 60px"></div>
+        <div class="faqCard">
+          <span class="faqLine"></span>
+          <p class="faqTitle">What is typeset?</p>
+          <p class="faqText">Typeset is the page where you can connect to the printer, and type paragraphs to print.</p>
+        </div>
+        <div class="faqCard">
+          <span class="faqLine"></span>
+          <p class="faqTitle">Does it work on mobile?</p>
+          <p class="faqText">The printing itself can only be done on modern desktop Chrome and Chrome for Android. iPhone support is impsobile due to Apple's hardware restrictions.</p>
+        </div>
+        <div class="faqCard">
+          <span class="faqLine"></span>
+          <p class="faqTitle">Design choices</p>
+          <p class="faqText">Originally the site had a more typewriter feel, but I dropped with in excanche for a more modern font and layout. I think this makes it easier on the eyes, if less thematic. The accent color (yellow #fffb07) is spread throughout the site and resembles a highlight color. It helps give the pages life, instead of everything being grayscale.</p>
+        </div>
+        <div class="faqCard">
+          <span class="faqLine"></span>
+          <p class="faqTitle">How does it work?</p>
+          <p class="faqText">The simple version is that it uses a library to connect through your computer or phone to the Arduino device which takes the input and converts it into data that the thermal printer can use. For a more in depth explanation, see the code tab.</p>
+        </div>
+        <div class="faqCard">
+          <span class="faqLine"></span>
+          <p class="faqTitle">What languages are used in this project?</p>
+          <p class="faqText">This website is coded, like most websites, using a combination of HTML5, CSS3, and JavaScript. The printer code is written in Arduino C.</p>
+        </div>
+        <div class="faqCard">
+          <span class="faqLine"></span>
+          <p class="faqTitle">jQuery?</p>
+          <p class="faqText">In an effort to keep this website as fast and pure as possible, I have limited the number of external libraries to just WebUSB, as there's no way around using that. jQuery is just an easier was to do things you can do with a little more time in regular JavaScript. For me, learning pure JS is more useful as it will likely be around for longer than jQuery.</p>
+        </div>
+        <div class="faqCard">
+          <span class="faqLine"></span>
+          <p class="faqTitle">Does it work on mobile?</p>
+          <p class="faqText">The printing itself can only be done on modern desktop Chrome and Chrome for Android. iPhone support is impsobile due to Apple's hardware restrictions.</p>
+        </div>
+        <div class="faqCard">
+          <span class="faqLine"></span>
+          <p class="faqTitle">How much of this did you write yourself?</p>
+          <p class="faqText">Aside from the WebUSB code (serial.js and part of console.js) it is all written by me. I used the MDN Docs and w3schools for references on CSS, HTML, and JS code. There were also numerous fourm threads that aided me with specific problems I ran into when developing txtprint.</p>
+        </div>
+        <div id="feedbackContainer">
+          <t id="feedbacktext">OTHER QUESTIONS</t>
+          <form name="feedback" autocomplete="off" method="POST" action="" data-netlify="true">
+            <input type="text" id="feedback" name="feedback_text" placeholder="Enter to send">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="code" style="display:none;margin-top: 70px">
+      <p class="udtitle">code</p>
+      <p id="udSubtext" style="font-size: 18px;padding-bottom:40px;">a more in depth explanation</p>
+      <div id="codeBody">
+        <codeH1>Big Title</codeH1>
+        <codeH2>Small Title</codeH2>
+        <codeP>Paragraph: Aside from the WebUSB code (serial.js and part of console.js) it is all written by me. I used the MDN Docs and w3schools for references on CSS, HTML, and JS code. There were also numerous fourm threads that aided me with specific problems I ran into when developing txtprint.</codeP>
+        <!--
+                <code>function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\bno\-highlight\b/) != -1)
+      return process(block, true, 0x0F) +
+             ` class="${cls}"`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+}
+
+export  $initHighlight;</code>
+-->
+      </div>
+    </div>
+    <div id="about" style="display:none;margin-top: 70px">
+<!--      <span id="hero"></span>-->
+      <div id=abContainer>
+        <div id="centerContainer"><span id="abHeader">txt.print</span>
+          <div id="byLineCont"><div id="byLine">a project by Jeremy Jacob</div></div>
+        </div>
+        <div class="abDesc">
+          <span id="textleft">an open source printer designed for students in the modern classroom as an interface between digital content and printed text</span>
+<!--           <img src="http://static.newworldencyclopedia.org/thumb/3/3a/Cat03.jpg/200px-Cat03.jpg"> -->
+          <span id="textright">txtprint is a project for the A.E.W. Full Steam Ahead year-long project.</span>
+        </div>
+        <div id="sketchContainer"></div>
+        <div id="abContact"></div>
+      </div>
+    </div>
+  </div>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
